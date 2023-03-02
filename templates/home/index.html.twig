@@ -5,76 +5,92 @@
 {% block body %}
 
     <div class="sectionUno" style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')">
-        <header class="head-nav">
-            <nav>
-                <img class="Logo_loba" src="{{ asset('build/images/Logo_loba.svg') }}" alt="#">
 
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Projets</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Dons</a></li>
-                </ul>
-
-                <button type="co-but">Connexion</button>
-
-                <div>FR</div>
-            </nav>
-        </header>
+        {% block header %}
+            {% include ('partials/header.html.twig') %}
+        {% endblock %}
 
         <section class="sec-intro">
             <p class="intro">
-                <span>ONG internationale </span>ayant son siège à New-York et renforcant la résilience <span>des femmes et jeunes filles </span> vulnérables aux <span>changements climatiques </span>par le biais de <span>l'agriculture, la santé et l'éducation.</span>
+                <span>ONG internationale </span>ayant son siège à New-York et renforcant la résilience <span>des femmes et jeunes filles </span>
+                vulnérables aux <span>changements climatiques </span>par le biais de <span>l'agriculture, la santé et l'éducation.</span>
             </p>
         </section>
 
         <section class="sec-mission">
-                <h2 class="mission-title">MISSION</h2>
-                <p class="mission-txt">
-                    Notre travail se fait dans une logique de renforcement de capacités des communautés rurales et de partenariat avec la population locale afin qu'elle puisse réellement s'approprier le projet pour qu'elle puisse jouer un rôle d'acteur dans son propre développement.
-                    <br>
-                    LO-BÂ travaille plus particulièrement avec les femmes et les filles victimes de la pauvreté parce que, lorsqu’elles ont accès aux ressources adéquates, elles ont le pouvoir d’aider des familles et des communautés entières à s’affranchir de la pauvreté. Nos interventions sont axées autour des priorités programmatiques suivantes : ​
-                    <br>
-                    <ul class="mission-txt">
-                        <li>Le renforcement de la résilience des femmes et jeunes filles vulnérables aux changements climatiques. </li>
-                        <li>Le droit et l’autonomisation des populations vulnérables, la réponse humanitaire, et en transversal, la santé ainsi que la formation.</li>
-                    </ul>
-{#                </p>#}
-                <p class="mission-txt">
-                    Ce Projet de « Développement communautaire au profit des femmes » est attrayant en ce sens qu’en appuyant les activités génératrices de revenus, les entreprises, ainsi qu'un meilleur accès aux crédits, elles apportent  aux organisations du secteur privé un plus grand rôle, et aux femmes davantage de pouvoir de s’organiser et d’agir pour elles-mêmes.
-                </p>
+            <h2 class="mission-title">MISSION</h2>
+            <p class="mission-txt">
+                Notre travail se fait dans une logique de renforcement de capacités des communautés rurales et de
+                partenariat avec la population locale afin qu'elle puisse réellement s'approprier le projet pour qu'elle
+                puisse jouer un rôle d'acteur dans son propre développement.
+                <br>
+                LO-BÂ travaille plus particulièrement avec les femmes et les filles victimes de la pauvreté parce que,
+                lorsqu’elles ont accès aux ressources adéquates, elles ont le pouvoir d’aider des familles et des
+                communautés entières à s’affranchir de la pauvreté. Nos interventions sont axées autour des priorités
+                programmatiques suivantes : ​
+                <br>
+            <ul class="mission-txt">
+                <li>Le renforcement de la résilience des femmes et jeunes filles vulnérables aux changements
+                    climatiques.
+                </li>
+                <li>Le droit et l’autonomisation des populations vulnérables, la réponse humanitaire, et en transversal,
+                    la santé ainsi que la formation.
+                </li>
+            </ul>
+            {#                </p> #}
+            <p class="mission-txt">
+                Ce Projet de « Développement communautaire au profit des femmes » est attrayant en ce sens qu’en
+                appuyant les activités génératrices de revenus, les entreprises, ainsi qu'un meilleur accès aux crédits,
+                elles apportent aux organisations du secteur privé un plus grand rôle, et aux femmes davantage de
+                pouvoir de s’organiser et d’agir pour elles-mêmes.
+            </p>
         </section>
     </div>
     <div class="sectionDouo" style="background-image: url('{{ asset('build/images/african-5035645_1920.jpg') }}')">
         <section class="sec-vision">
             <h2 class="vision-title">VISION</h2>
             <p class="vision-txt">
-                Par le biais de l’agriculture, Lô-Ba œuvre auprès des populations rurales les plus démunies pour améliorer :
-                <ul>
-                    <li class="vision-txt">Les services de base en sécurité alimentaire.</li>
-                    <li class="vision-txt">L’accès à l’eau potable et aux installations sanitaires.</li>
-                    <li class="vision-txt">Assurer aux femmes une formation en alphabétisation, santé, sensibilisation à la protection de l'environnement afin de faire face aux feux de brousses.</li>
-                </ul>
-{#            </p>#}
+                Par le biais de l’agriculture, Lô-Ba œuvre auprès des populations rurales les plus démunies pour
+                améliorer :
+            <ul>
+                <li class="vision-txt">Les services de base en sécurité alimentaire.</li>
+                <li class="vision-txt">L’accès à l’eau potable et aux installations sanitaires.</li>
+                <li class="vision-txt">Assurer aux femmes une formation en alphabétisation, santé, sensibilisation à la
+                    protection de l'environnement afin de faire face aux feux de brousses.
+                </li>
+            </ul>
+            {#            </p> #}
         </section>
 
         <section class="sec-obj">
             <h2 class="obj-title">OBJECTIFS</h2>
             <p class="obj-txt">
-                L'objectif global de l'ONG Lô-Ba  est de contribuer à l’action des pouvoirs publics, qui s’efforçaient de créer un développement participatif auto-entretenu aux niveaux rural et local, avec pour souci majeur d’assurer une plus complète participation des femmes, qui sont à la fois participantes et bénéficiaires des initiatives en matière de développement.
+                L'objectif global de l'ONG Lô-Ba est de contribuer à l’action des pouvoirs publics, qui s’efforçaient de
+                créer un développement participatif auto-entretenu aux niveaux rural et local, avec pour souci majeur
+                d’assurer une plus complète participation des femmes, qui sont à la fois participantes et bénéficiaires
+                des initiatives en matière de développement.
                 <br>
                 Pour concrétiser cette perspective, Lô-Ba vise les objectifs spécifiques suivants :
                 <br>
-                <ul>
-                    <li class="obj-txt">Aider les femmes rurales, sur toute l’étendue du secteur, à augmenter leurs productions et leurs revenus et à bénéficier d’un meilleur accès aux services, en améliorant leur vie familiale par l’emploi des équipements de transformation des produits qui leur seraient fournis et leur formation aux méthodes et techniques améliorées de production.</li>
-                    <li class="obj-txt">Mettre en place un dispositif d’octroi de crédit ainsi que les services correspondants de conseil en gestion pour financer et appuyer les activités génératrices de revenus menées par les groupements féminins de production.</li>
-                    <li class="obj-txt">Fournir des infrastructures sociales telles que les crèches et les forages d’eau.</li>
-                    <li class="obj-txt">Assurer aux femmes des formations : <br>
-                        • en alphabétisation, <br>
-                        • santé, <br>
-                        • éducation.</li>
-                </ul>
-{#            </p>#}
+            <ul>
+                <li class="obj-txt">Aider les femmes rurales, sur toute l’étendue du secteur, à augmenter leurs
+                    productions et leurs revenus et à bénéficier d’un meilleur accès aux services, en améliorant leur
+                    vie familiale par l’emploi des équipements de transformation des produits qui leur seraient fournis
+                    et leur formation aux méthodes et techniques améliorées de production.
+                </li>
+                <li class="obj-txt">Mettre en place un dispositif d’octroi de crédit ainsi que les services
+                    correspondants de conseil en gestion pour financer et appuyer les activités génératrices de revenus
+                    menées par les groupements féminins de production.
+                </li>
+                <li class="obj-txt">Fournir des infrastructures sociales telles que les crèches et les forages d’eau.
+                </li>
+                <li class="obj-txt">Assurer aux femmes des formations : <br>
+                    • en alphabétisation, <br>
+                    • santé, <br>
+                    • éducation.
+                </li>
+            </ul>
+            {#            </p> #}
         </section>
     </div>
 
