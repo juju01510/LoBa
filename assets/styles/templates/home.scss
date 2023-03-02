@@ -1,0 +1,150 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'fontRegular', Helvetica, sans-serif;
+  color: #f1f1f1;
+  background-color: #111;
+}
+
+.head-nav {
+  /* height: 100vh; */
+  width: 100%;
+}
+
+nav {
+  /* position: absolute; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  /* padding-top: 40px; */
+  padding-left: 20%;
+  padding-right: 20%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.Logo_loba {
+  max-width: 120px;
+}
+nav ul li{
+  display: inline-block;
+  list-style-type: none;
+  padding: 10px 20px;
+}
+nav ul li a {
+  font-size: 1.3em;
+  color: #111;
+}
+nav ul li a:hover {
+  color: #f1f1f1;
+  transition: .3s ease-in-out;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10em 1em 12em;
+}
+
+section h2 {
+  display: block;
+  text-align: center;
+  font-family: 'fontBold', Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: #111;
+  background-color: #f1f1f1;
+  max-width: 300px;
+  border-radius: 30px;
+  padding: 0.2em 1em;
+  /* margin-top: 5em; */
+  margin-bottom: 2em;
+}
+
+.sectionUno {
+  //background: url(./Visuels/Matiere/africa-1089242_1920.jpg);
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-bottom: 100px;
+  z-index: 1;
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.intro {
+
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  color: #111;
+  font-size: 1.7em;
+  padding: 5em;
+  line-height: 1.5em;
+}
+
+.intro span {
+  font-family: 'fontBold';
+  color: #A14228;
+}
+
+.sec-mission {
+  background-color: #A14228;
+  padding: 6em 0 10em;
+  clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+}
+
+.mission-title {
+  color: #A14228;
+  font-size: 2em;
+}
+
+.mission-txt, .vision-txt, .obj-txt {
+  max-width: 800px;
+  line-height: 1.5em;
+  font-size: 1.2em;
+}
+/* .mission-txt ul li, .obj-txt ul li{
+    max-width: 500px;
+    padding: 1em;
+} */
+
+.sectionDouo {
+  position: relative;
+  //background: url(./Visuels/Matiere/african-5035645_1920.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-top: -400px;
+  padding-top: 150px;
+  width: 100%;
+  clip-path: polygon(0 -12%, 100% 0, 100% 88%, 0 100%);
+}
+
+.vision-title {
+  font-size: 2em;
+}
+
+.sec-obj {
+  background-color: #1b6e55;
+  padding: 6em 0 10em;
+  clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+}
+
+.obj-title {
+  margin-top: 100px;
+  color: #1b6e55;
+  font-size: 2em;
+}
