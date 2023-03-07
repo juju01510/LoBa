@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projects Lô-Ba{% endblock %}
+
+{% block body %}
+
+    <div class="sectionUno" style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')">
+
+    {% block header %}
+        {% include ('partials/main_header.html.twig') %}
+    {% endblock %}
+
+
+
+
+    {% block footer %}
+        {% include('partials/footer.html.twig') %}
+    {% endblock %}
+
+{% endblock %}

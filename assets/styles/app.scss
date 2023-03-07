@@ -1,8 +1,9 @@
-@import "assets/styles/bases";
-@import "assets/styles/variables";
-@import "assets/styles/fonts";
+@import "bases";
+@import "variables";
+@import "fonts";
 
-@import "assets/styles/templates/home";
+@import "templates/home";
 
-@import "assets/styles/components/header";
-@import "assets/styles/components/footer";
+@import "components/header";
+@import "components/footer";
+@import "register/register";
