@@ -1,0 +1,145 @@
+.container-index{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10em 5em 12em;
+}
+
+.proj-intro{
+  /* max-width: 1100px; */
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+h1{
+  display: block;
+  text-align: center;
+  font-family: 'fontBold', Helvetica, sans-serif;
+  font-size: 2em;
+  color: #111;
+  background-color: #f1f1f1;
+  max-width: 300px;
+  border-radius: 30px;
+  padding: 0.2em 1em;
+  margin-top: 5em;
+  margin-bottom: 2em;
+}
+
+.sec-pictos{
+  display: flex;
+  flex-direction: row;
+}
+
+.sec-pictos a img{
+  width: 200px;
+  height: 200px;
+  margin: 1em;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 1);
+
+}
+
+.pictos-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 2em;
+}
+
+section h2 {
+  display: block;
+  text-align: center;
+  font-family: 'fontBold', Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: #111;
+  background-color: #f1f1f1;
+  max-width: 300px;
+  border-radius: 30px;
+  padding: 0.2em 1em;
+  /* margin-top: 5em; */
+  margin-bottom: 2em;
+}
+
+.sectionUno {
+  //background: url(./Visuels/Matiere/outdoors-3378794_1920.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-bottom: 100px;
+  z-index: 1;
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.intro {
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  color: #111;
+  font-size: 1.7em;
+  padding: 5em;
+  line-height: 1.5em;
+}
+
+.intro span {
+  font-family: var(--bold-font);
+  color: #A14228;
+}
+
+.sec-sante {
+  background-color: #A14228;
+  padding: 10em 0 10em;
+  clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+}
+
+.sante-title {
+  color: #A14228;
+  font-size: 2em;
+}
+
+.sante-txt, .vision-txt, .obj-txt {
+  max-width: 800px;
+  line-height: 1.5em;
+  font-size: 1em;
+}
+/* .mission-txt ul li, .obj-txt ul li{
+    max-width: 500px;
+    padding: 1em;
+} */
+
+.sectionDouo {
+  position: relative;
+  //background: url(./Visuels/Matiere/african-5035645_1920.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-top: -400px;
+  padding-top: 150px;
+  width: 100%;
+  clip-path: polygon(0 -12%, 100% 0, 100% 88%, 0 100%);
+}
+
+.vision-title {
+  font-size: 2em;
+}
+
+.sec-obj {
+  background-color: #1b6e55;
+  padding: 6em 0 10em;
+  clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+}
+
+.obj-title {
+  margin-top: 100px;
+  color: #1b6e55;
+  font-size: 2em;
+}

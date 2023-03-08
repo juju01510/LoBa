@@ -1,20 +1,15 @@
-{% extends 'base.html.twig' %}
+{#{% extends 'base.html.twig' %}#}
 
-{% block title %}Home Lô-Ba{% endblock %}
+{#{% block title %}Home Lô-Ba{% endblock %}#}
 
-{% block body %}
-
-    <div class="sectionUno" style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')">
-
-        {% block header %}
-            {% include ('partials/main_header.html.twig') %}
-        {% endblock %}
+{% block main %}
+    <div class="sectionOne" style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')">
 
         <section class="sec-intro">
-            <p class="intro">
-                <span>ONG internationale </span>ayant son siège à New-York et renforcant la résilience <span>des femmes et jeunes filles </span>
-                vulnérables aux <span>changements climatiques </span>par le biais de <span>l'agriculture, la santé et l'éducation.</span>
-            </p>
+                <p class="intro">
+                    <span>ONG internationale </span>ayant son siège à New-York et renforcant la résilience <span>des femmes et jeunes filles </span>
+                    vulnérables aux <span>changements climatiques </span>par le biais de <span>l'agriculture, la santé et l'éducation.</span>
+                </p>
         </section>
 
         <section class="sec-mission">
@@ -27,17 +22,16 @@
                 LO-BÂ travaille plus particulièrement avec les femmes et les filles victimes de la pauvreté parce que,
                 lorsqu’elles ont accès aux ressources adéquates, elles ont le pouvoir d’aider des familles et des
                 communautés entières à s’affranchir de la pauvreté. Nos interventions sont axées autour des priorités
-                programmatiques suivantes : ​
-                <br>
+                programmatiques suivantes :
+            </p>
             <ul class="mission-txt">
                 <li>Le renforcement de la résilience des femmes et jeunes filles vulnérables aux changements
-                    climatiques.
+                        climatiques.
                 </li>
                 <li>Le droit et l’autonomisation des populations vulnérables, la réponse humanitaire, et en transversal,
-                    la santé ainsi que la formation.
+                        la santé ainsi que la formation.
                 </li>
             </ul>
-            </p>
             <p class="mission-txt">
                 Ce Projet de « Développement communautaire au profit des femmes » est attrayant en ce sens qu’en
                 appuyant les activités génératrices de revenus, les entreprises, ainsi qu'un meilleur accès aux crédits,
@@ -46,20 +40,20 @@
             </p>
         </section>
     </div>
-    <div class="sectionDouo" style="background-image: url('{{ asset('build/images/african-5035645_1920.jpg') }}')">
+
+    <div class="sectionTwo" style="background-image: url('{{ asset('build/images/african-5035645_1920.jpg') }}')">
         <section class="sec-vision">
             <h2 class="vision-title">VISION</h2>
             <p class="vision-txt">
                 Par le biais de l’agriculture, Lô-Ba œuvre auprès des populations rurales les plus démunies pour
-                améliorer :
+                améliorer : </p>
             <ul>
                 <li class="vision-txt">Les services de base en sécurité alimentaire.</li>
                 <li class="vision-txt">L’accès à l’eau potable et aux installations sanitaires.</li>
                 <li class="vision-txt">Assurer aux femmes une formation en alphabétisation, santé, sensibilisation à la
-                    protection de l'environnement afin de faire face aux feux de brousses.
+                            protection de l'environnement afin de faire face aux feux de brousses.
                 </li>
             </ul>
-            {#            </p> #}
         </section>
 
         <section class="sec-obj">
@@ -72,6 +66,7 @@
                 <br>
                 Pour concrétiser cette perspective, Lô-Ba vise les objectifs spécifiques suivants :
                 <br>
+            </p>
             <ul>
                 <li class="obj-txt">Aider les femmes rurales, sur toute l’étendue du secteur, à augmenter leurs
                     productions et leurs revenus et à bénéficier d’un meilleur accès aux services, en améliorant leur
@@ -90,12 +85,6 @@
                     • éducation.
                 </li>
             </ul>
-            {#            </p> #}
         </section>
     </div>
-
-    {% block footer %}
-        {% include('partials/footer.html.twig') %}
-    {% endblock %}
-
 {% endblock %}

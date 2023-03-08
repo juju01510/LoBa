@@ -2,19 +2,85 @@
 
 {% block title %}Projects Lô-Ba{% endblock %}
 
-{% block body %}
+{% block main %}
 
-    <div class="sectionUno" style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')">
+        <section class="proj-intro">
+            <h1>NOS PROJETS</h1>
+            <section class="sec-pictos">
+                <a href="#" class="pictos-links">
+                    <img src="./Visuels/Picto_sante.svg" alt="">
+                </a>
 
-    {% block header %}
-        {% include ('partials/main_header.html.twig') %}
-    {% endblock %}
+                <a href="#" class="pictos-links">
+                    <img src="./Visuels/Picto_education.svg" alt="">
+                </a>
 
+                <a href="#" class="pictos-links">
+                    <img src="./Visuels/Picto_agriculture.svg" alt="">
+                </a>
+            </section>
+        </section>
 
+        <section class="sec-sante">
+            <h2 class="sante-title">SANTÉ</h2>
+            <h3>ALERT COVID 19</h3>
+            <p class="sante-txt">Pour faire face à la crise sanitaire Covid-19 en RCA , Lô-Bâ est pleinement engagée dans une réponse ciblée aux enjeux sanitaires posés par cette pandémie. Compte tenu de la situation d’urgence, Lô-Bâ mobilise l’ensemble de ses équipes et de ses moyens pour apporter des réponses justes, rapides et adaptées aux besoins exprimés sur le terrain, avec pour objectif prioritaire de renforcer les systèmes de santé les plus vulnérables et de soutenir les acteurs engagés dans cette lutte qui nous concerne toutes et tous.</p>
 
+            <h3>CONSTATS</h3>
+            <p class="sante-txt">
+                L’hygiène et la prévention à l’infection sont indispensables dans les hôpitaux et centres de soins. La saleté, les micro-organismes et les microbes peuvent avoir des conséquences dévastatrices. Il s’agit de facteurs critiques dont plusieurs vies dépendent. Dans les hôpitaux de premier niveau  il y a rupture régulière des consommables tels que les gants, l’eau de javel, le savon. A cela s’ajoutent une insuffisance des pratiques d’hygiène par les professionnels de santé et une insuffisance des connaissances sur les risques et les moyens de prévention des ces risques pendant les soins.
 
-    {% block footer %}
-        {% include('partials/footer.html.twig') %}
-    {% endblock %}
+                En effet, nous avons constaté un faible niveau de la tenue professionnelle des professionnels de santé. Seulement 63,16 % des professionnels de santé portent à la fois une tenue de travail, qui est propre et adaptée au métier.
+
+                Ce constat soulève une réflexion sur une prise de conscience à générer et à accompagner auprès des professionnels de santé et des gestionnaires pour rentrer dans la culture de la lutte contre les infections associées aux soins.
+            </p>
+
+            <h3>ACTIONS</h3>
+            <p class="sante-txt">
+                Lô-Ba met au point des solutions pour combattre la maladie et améliorer la santé. Le message est claire: les solutions aux problèmes sanitaires de l'Afrique sont à notre portée. Ces solutions ne peuvent cependant être trouvées qu'en enforçant le rôle de tutelle des gouvernements dans le domaine de la santé et en s'appuyant sur les enseignements tirés des interventions sanitaires qui ont réussi, comme sur une collaboration plus étroite entre tous les partenaires.
+            </p>
+
+            <h3>NOS ACTIVITÉS</h3>
+            <p class="sante-txt">
+            <ul>
+                <li class="sante-txt">e-Santé: L'ONG Lô-Bâ contribue à la mise en place des outils numériques au service de la santé : formation à distance de personnel médical grâce au e-learning et au m-learning, diagnostics à distance grâce à la télémédecine, télétransmission d’information sanitaires et suivi des patients grâce à la téléphonie mobile (applications, SMS)…</li>
+                <li class="sante-txt">Mise en place de toilettes sèches dans les espaces publiques. Le projet est fondé sur la réutilisation et la conservation des resources naturelles et a pour objectif de preserver la santé humaine, d'augmenter la fertilité des sols et de réduire les nuisances causées à l'environnement.</li>
+                <li class="sante-txt">Création de centres de santé communautaire multisectoriels qui livrent des services et des programmes intégrés et centrés sur des personnes qui reflètent les besoins et les priorités des communautés diverses (consultations pre-natal, gérontologie, kinésithérapie, médecine scolaire, médecine du travail).</li>
+            </ul>
+            </p>
+        </section>
+    </div>
+    <div class="sectionDouo">
+        <section class="sec-vision">
+            <h2 class="vision-title">VISION</h2>
+            <p class="vision-txt">
+                Par le biais de l’agriculture, Lô-Ba œuvre auprès des populations rurales les plus démunies pour améliorer :
+            <ul>
+                <li class="vision-txt">Les services de base en sécurité alimentaire.</li>
+                <li class="vision-txt">L’accès à l’eau potable et aux installations sanitaires.</li>
+                <li class="vision-txt">Assurer aux femmes une formation en alphabétisation, santé, sensibilisation à la protection de l'environnement afin de faire face aux feux de brousses.</li>
+            </ul>
+            </p>
+        </section>
+
+        <section class="sec-obj">
+            <h2 class="obj-title">OBJECTIFS</h2>
+            <p class="obj-txt">
+                L'objectif global de l'ONG Lô-Ba  est de contribuer à l’action des pouvoirs publics, qui s’efforçaient de créer un développement participatif auto-entretenu aux niveaux rural et local, avec pour souci majeur d’assurer une plus complète participation des femmes, qui sont à la fois participantes et bénéficiaires des initiatives en matière de développement.
+                <br>
+                Pour concrétiser cette perspective, Lô-Ba vise les objectifs spécifiques suivants :
+                <br>
+            <ul>
+                <li class="obj-txt">Aider les femmes rurales, sur toute l’étendue du secteur, à augmenter leurs productions et leurs revenus et à bénéficier d’un meilleur accès aux services, en améliorant leur vie familiale par l’emploi des équipements de transformation des produits qui leur seraient fournis et leur formation aux méthodes et techniques améliorées de production.</li>
+                <li class="obj-txt">Mettre en place un dispositif d’octroi de crédit ainsi que les services correspondants de conseil en gestion pour financer et appuyer les activités génératrices de revenus menées par les groupements féminins de production.</li>
+                <li class="obj-txt">Fournir des infrastructures sociales telles que les crèches et les forages d’eau.</li>
+                <li class="obj-txt">Assurer aux femmes des formations : <br>
+                    • en alphabétisation, <br>
+                    • santé, <br>
+                    • éducation.</li>
+            </ul>
+            </p>
+        </section>
+    </div>
 
 {% endblock %}
