@@ -16,6 +16,10 @@
 </head>
 <body>
 
+{% if is_granted('ROLE_ADMIN')%}
+<a href="{{ path('admin') }}">Admin</a>
+{% endif %}
+
 {% block body %}
 {#    {% block header %}#}
 {#        {% include('partials/header.html.twig') %}#}

@@ -7,11 +7,17 @@ use App\Entity\Introduction;
 use App\Entity\Post;
 use App\Entity\Project;
 use App\Entity\Section;
+use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class DashboardController extends AbstractDashboardController
@@ -47,13 +53,31 @@ class DashboardController extends AbstractDashboardController
             ->setTitle('Loba Admin');
     }
 
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        return parent::configureUserMenu($user)
+            ->setMenuItems([
+//                MenuItem::linkToUrl('Profile','fa fa-user', $this->generateUrl())
+                MenuItem::linkToUrl('Sign out', 'fa fa-sign-out', $this->generateUrl('app_logout'))
+            ]);
+    }
+
+
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
-        yield MenuItem::linkToCrud('HomePage Intro', 'fas fa-list', Introduction::class);
-        yield MenuItem::linkToCrud('HomePage Sections', 'fas fa-list', Section::class);
+        yield MenuItem::linkToUrl('Website Homepage', 'fa fa-home', $this->generateUrl('app_home'));
+        yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('Homepage Introduction', 'fas fa-list', Introduction::class);
+        yield MenuItem::linkToCrud('Homepage Sections', 'fas fa-list', Section::class);
         yield MenuItem::linkToCrud('Projects', 'fas fa-list', Project::class);
         yield MenuItem::linkToCrud('Posts', 'fas fa-list', Post::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
+    }
+
+    public function configureActions(): Actions
+    {
+        return parent::configureActions()
+            ->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
 }

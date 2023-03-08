@@ -47,10 +47,10 @@ final class PostFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'content' => self::faker()->text(),
+            'content' => self::faker()->text(200),
             'dateCreated' => self::faker()->dateTime(),
-            'media' => 'africa-1089242_1920.jpg',
-            'title' => 'Title',
+            'media' => 'african-5035645_1920.jpg',
+            'title' => self::faker()->text(20),
             'user' => UserFactory::random(),
             'category' => CategoryFactory::randomOrCreate(),
         ];

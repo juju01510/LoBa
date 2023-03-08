@@ -48,8 +48,8 @@ final class ProjectFactory extends ModelFactory
     {
         return [
             'content' => self::faker()->text(),
-            'icon' => 'icon',
-            'media' => 'africa-1089242_1920.jpg',
+            'icon' => 'Picto_sante.svg',
+            'media' => 'african-5035645_1920.jpg',
             'title' => 'Title',
             'user' => UserFactory::random(),
         ];
