@@ -37,7 +37,7 @@ body{
   }
 
   .sectionOne{
-    //background-image: url("../public/build/images/africa-1089242_1920.jpg");
+    background-image: url(../../images/africa-1089242_1920.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -72,7 +72,7 @@ body{
         font-size: 2em;
       }
 
-      .mission-txt, .vision-txt, .obj-txt{
+      .mission-txt{
         max-width: 800px;
         line-height: 1.5em;
         font-size: 1.2em;
@@ -87,7 +87,7 @@ body{
 
   .sectionTwo{
     position: relative;
-    //background-image: url(../public/build/images/african-5035645_1920.jpg);
+    background-image: url(../../images/african-5035645_1920.jpg);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
