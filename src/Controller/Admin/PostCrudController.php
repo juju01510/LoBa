@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
@@ -18,14 +19,22 @@ class PostCrudController extends AbstractCrudController
         return Post::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle(Crud::PAGE_INDEX, 'Liste des articles')
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier un article')
+            ->setPageTitle(Crud::PAGE_NEW, 'Créer un article')
+            ->setPageTitle(Crud::PAGE_DETAIL, 'Consulter un article')
+
+            ->setDefaultSort(['dateCreated' => 'DESC']);    }
+
 
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title');
         yield DateField::new('dateCreated')
             ->hideOnForm();
-        yield DateTimeField::new('dateCreated')
-            ->onlyOnForms();
         yield TextEditorField::new('content');
         yield ImageField::new('media')
             ->setUploadDir('public/uploads/images')
