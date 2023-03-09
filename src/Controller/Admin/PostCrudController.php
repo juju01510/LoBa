@@ -22,10 +22,8 @@ class PostCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle(Crud::PAGE_INDEX, 'Liste des articles')
-            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier un article')
-            ->setPageTitle(Crud::PAGE_NEW, 'Créer un article')
-            ->setPageTitle(Crud::PAGE_DETAIL, 'Consulter un article')
+            ->setPageTitle(Crud::PAGE_INDEX, 'Posts')
+            ->setPageTitle(Crud::PAGE_DETAIL, 'Post')
 
             ->setDefaultSort(['dateCreated' => 'DESC']);    }
 
@@ -47,4 +45,6 @@ class PostCrudController extends AbstractCrudController
 //            TextEditorField::new('description'),
 //        ];
     }
+
+
 }
