@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Post;
 use App\Entity\Section;
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
@@ -28,13 +31,27 @@ class SectionCrudController extends AbstractCrudController
         yield BooleanField::new('available')
             ->renderAsSwitch(false)
             ->onlyOnIndex();
-
-
-//        return [
-//            IdField::new('id'),
-//            TextField::new('title'),
-//            TextEditorField::new('description'),
-//        ];
     }
 
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $user = $this->getUser();
+        if (!$user instanceof User) {
+            throw new \LogicException('Currently logged in user is not an instance of User?!');
+        }
+        $entityInstance->setUser($user);
+
+        parent::updateEntity($entityManager, $entityInstance);
+    }
+
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $user = $this->getUser();
+        if (!$entityInstance instanceof Section) {
+            return;
+        }
+        $entityInstance->setUser($user);
+
+        parent::persistEntity($entityManager, $entityInstance);
+    }
 }

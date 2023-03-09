@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Post;
 use App\Entity\Project;
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -17,7 +20,6 @@ class ProjectCrudController extends AbstractCrudController
         return Project::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title');
@@ -30,15 +32,27 @@ class ProjectCrudController extends AbstractCrudController
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
-
-//        yield ImageField::new('media')
-//        ->setUploadDir('build/images/');
-
-//        return [
-//            IdField::new('id'),
-//            TextField::new('title'),
-//            TextEditorField::new('description'),
-//        ];
     }
 
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $user = $this->getUser();
+        if (!$user instanceof User) {
+            throw new \LogicException('Currently logged in user is not an instance of User?!');
+        }
+        $entityInstance->setUser($user);
+
+        parent::updateEntity($entityManager, $entityInstance);
+    }
+
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $user = $this->getUser();
+        if (!$entityInstance instanceof Project) {
+            return;
+        }
+        $entityInstance->setUser($user);
+
+        parent::persistEntity($entityManager, $entityInstance);
+    }
 }

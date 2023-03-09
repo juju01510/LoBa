@@ -22,7 +22,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class DashboardController extends AbstractDashboardController
 {
-//    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
@@ -44,7 +44,7 @@ class DashboardController extends AbstractDashboardController
         // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
         // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
         //
-        // return $this->render('some/path/my-dashboard.html.twig');
+//         return $this->render('some/path/my-dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -62,15 +62,21 @@ class DashboardController extends AbstractDashboardController
             ]);
     }
 
-
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
+//        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
         yield MenuItem::linkToUrl('Website Homepage', 'fa fa-home', $this->generateUrl('app_home'));
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
-        yield MenuItem::linkToCrud('Homepage Introduction', 'fas fa-list', Introduction::class);
-        yield MenuItem::linkToCrud('Homepage Sections', 'fas fa-list', Section::class);
+
+        yield MenuItem::section('Homepage', 'fa fa-home');
+        yield MenuItem::linkToCrud('Introduction', 'fas fa-list', Introduction::class);
+        yield MenuItem::linkToCrud('Sections', 'fas fa-list', Section::class);
+
+
+        yield MenuItem::section('Project page', 'fa fa-w');
         yield MenuItem::linkToCrud('Projects', 'fas fa-list', Project::class);
+
+        yield MenuItem::section('Blog page', 'fa fa-thermometer-full ');
         yield MenuItem::linkToCrud('Posts', 'fas fa-list', Post::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
     }

@@ -23,10 +23,8 @@ class UserCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         return parent::configureActions($actions)
-            ->disable(Action::EDIT)
-            ->disable(Action::DETAIL);
+            ->disable(Action::EDIT);
     }
-
 
     public function configureFields(string $pageName): iterable
     {
@@ -43,13 +41,5 @@ class UserCrudController extends AbstractCrudController
             ->allowMultipleChoices()
             ->renderExpanded()
             ->renderAsBadges();
-
-
-//        return [
-//            IdField::new('id'),
-//            TextField::new('title'),
-//            TextEditorField::new('description'),
-//        ];
     }
-
 }
