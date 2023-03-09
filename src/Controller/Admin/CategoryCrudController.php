@@ -21,6 +21,9 @@ class CategoryCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('name');
+        yield TextField::new('user')
+        ->setLabel('Created by')
+        ->hideOnForm();
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void

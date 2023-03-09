@@ -35,9 +35,11 @@ class PostCrudController extends AbstractCrudController
         yield AssociationField::new('category');
         yield TextField::new('title');
         yield DateField::new('dateCreated')
+            ->setLabel('Created on')
             ->hideOnForm();
         yield TextEditorField::new('content');
         yield AssociationField::new('user')
+            ->setLabel('Created by')
             ->hideOnForm();
         yield ImageField::new('media')
             ->setUploadDir('public/uploads/images')

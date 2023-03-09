@@ -32,6 +32,9 @@ class ProjectCrudController extends AbstractCrudController
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
+        yield TextField::new('user')
+            ->setLabel('Created by')
+            ->hideOnForm();
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
