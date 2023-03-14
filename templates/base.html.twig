@@ -17,15 +17,17 @@
 <body>
 
 {% block body %}
-{#    {% block header %}#}
-{#        {% include('partials/header.html.twig') %}#}
-{#    {% endblock %}#}
-{#    <main>#}
-{#        {% block main %}{% endblock %}#}
-{#    </main>#}
-{#    {% block footer %}#}
-{#        {% include('partials/footer.html.twig') %}#}
-{#    {% endblock %}#}
+    {% block header %}
+        {% include('partials/main_header.html.twig') %}
+    {% endblock %}
+
+    {% block main %}
+        {% include('home/index.html.twig') %}
+    {% endblock %}
+
+    {% block footer %}
+        {% include('partials/footer.html.twig') %}
+    {% endblock %}
 {% endblock %}
 
 {% block javascripts %}

@@ -1,0 +1,103 @@
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10em 0 12em;
+}
+
+.sectionBlog{
+  //background-image: url('../../images/children-of-uganda-2245270_1920.jpg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 1;
+  width: 100%;
+  background-color: var(--main-color-black);
+
+  .blog-intro{
+    /* max-width: 1100px; */
+    margin: 0;
+    padding: 0;
+
+    .img-cont{
+      width: 100%;
+      max-height: 1000px;
+      //border-radius: 30px;
+      margin: 0 1em;
+      overflow: hidden;
+
+      .blog-img{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin-bottom: 2em;
+      }
+    }
+  }
+
+  .sec-blogList{
+    background-color: var(--main-color-white);
+    padding: 5em 0 5em;
+    //clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+
+    .blog-res{
+      position: relative;
+      //top: -100px;
+      //background-color: rgba(255, 255, 255, .5);
+      align-content: center;
+      //text-align: center;
+      //border-radius: 30px;
+      max-width: 1000px;
+
+      #blog-title{
+        text-align: center;
+        font-family: var(--bold-font), Helvetica, sans-serif;
+        font-size: 2.5em;
+        color: var(--main-color-orange);
+        max-width: 1000px;
+        margin-bottom: 2em;
+      }
+
+      .blog-ac{
+        //max-width: 1000px;
+        line-height: 1.5em;
+        font-size: 1.5em;
+        //padding: 0 2em 2em;
+        color: var(--main-color-black);
+        text-align: center;
+      }
+
+      .blog-ac::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -100px;
+        background: var(--main-color-black);
+        height: 5px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+
+    .blog-dev{
+      max-width: 1000px;
+
+      #blog-miniTitle{
+        //text-align: center;
+        font-family: var(--bold-font), Helvetica, sans-serif;
+        font-size: 1.5em;
+        color: var(--main-color-orange);
+        margin-top: 6em;
+      }
+
+      .blog-txt{
+        line-height: 1.5em;
+        font-size: 1em;
+        padding: 0 2em 2em;
+        color: var(--main-color-black);
+      }
+    }
+  }
+}

@@ -10,3 +10,7 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
+
+// Les JS
+import "./styles/components/navhide";
+import "./styles/register/register";
