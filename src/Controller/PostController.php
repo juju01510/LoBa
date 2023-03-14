@@ -22,7 +22,7 @@ class PostController extends AbstractController {
     {
         $posts = $postRepository->findAll();
 
-        return $this->render('test.html.twig', [
+        return $this->render('blogs/blogs.html.twig', [
             'posts' => $posts
         ]);
     }
@@ -32,49 +32,8 @@ class PostController extends AbstractController {
     {
         $post = $postRepository->find($post);
 
-        $commentary = new Commentary();
-        $commentary->setPost($post);
-        $form = $this->createForm(CommentaryType::class, $commentary);
-
-        $like = new Like();
-        $like->setPost($post);
-        $likeForm = $this->createForm(LikeType::class, $like);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $commentary = $form->getData();
-
-            if ($this->getUser() != null) {
-                $commentary->setUser($this->getUser());
-                $commentary->setDateCreated(new DateTime('now'));
-
-                $em = $doctrine->getManager();
-                $em->persist($commentary);
-                $em->flush();
-
-                return $this->redirectToRoute('app_blog_post', ['post' => $post->getId()]);
-            }
-        }
-
-        $likeForm->handleRequest($request);
-        if ($likeForm->isSubmitted() && $likeForm->isValid()) {
-            $like = $likeForm->getData();
-
-            if ($this->getUser() != null) {
-                $like->setUser($this->getUser());
-
-                $em = $doctrine->getManager();
-                $em->persist($like);
-                $em->flush();
-
-                return $this->redirectToRoute('app_blog_post', ['post' => $post->getId()]);
-            }
-        }
-
-        return $this->render('test.html.twig', [
-            'commentaryForm' => $form->createView(),
+        return $this->render('blogs/blog.html.twig', [
             'post' => $post,
-            'likeForm' => $likeForm->createView(),
         ]);
     }
 }
