@@ -17,7 +17,7 @@ class Introduction
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(cascade: ['persist'])]
     private ?User $user = null;
 
     public function getId(): ?int
