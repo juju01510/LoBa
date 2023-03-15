@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Commentary;
+use App\Factory\CommentaryFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Factory\UserFactory;
@@ -23,6 +25,7 @@ class AppFixtures extends Fixture
         PostFactory::createMany(15);
         CategoryFactory::createMany(10);
         PartnersFactory::createMany(10);
+        CommentaryFactory::createMany(5);
         $manager->flush();
     }
 }
