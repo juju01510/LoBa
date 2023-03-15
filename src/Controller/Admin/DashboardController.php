@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Category;
 use App\Entity\Introduction;
+use App\Entity\Partners;
 use App\Entity\Post;
 use App\Entity\Project;
 use App\Entity\Section;
@@ -67,6 +68,7 @@ class DashboardController extends AbstractDashboardController
 //        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
         yield MenuItem::linkToUrl('Website', 'fa fa-home', $this->generateUrl('app_home'));
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('Partnerships', 'fa fa-handshake-o', Partners::class);
 
         yield MenuItem::section('Homepage', 'fa fa-home');
         yield MenuItem::linkToCrud('Introduction', 'fas fa-list', Introduction::class);
