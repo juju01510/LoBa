@@ -12,7 +12,7 @@
         {% for post in posts %}
             <section class="sec-blogsList">
                 <div class="img-container">
-                    <img class="blogs-img" src="{{ asset('uploads/images' ~ post.media) }}" alt="lorem">
+                    <img class="blogs-img" src="{{ asset('uploads/images/' ~ post.media) }}" alt="lorem">
                 </div>
                 <a href="{{ path('app_blog_post', { post:post.id}) }}">
                     <div class="blog-resume">
