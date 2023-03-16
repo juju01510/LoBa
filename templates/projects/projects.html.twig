@@ -7,42 +7,65 @@
         <section class="proj-intro">
             <h1>NOS PROJETS</h1>
             <section class="sec-pictos">
-                <a href="#sante-title"  class="pictos-links">
-                    <img src="{{ asset('build/images/Picto_sante.svg') }}" alt="Picto santé">
-                </a>
-
-                <a href="#agri-title" class="pictos-links">
-                    <img src="{{ asset('build/images/Picto_agriculture.svg') }}" alt="Picto agriculture">
-                </a>
-
-                <a href="#educ-title" class="pictos-links">
-                    <img src="{{ asset('build/images/Picto_education.svg') }}" alt="Picto éducation">
-                </a>
+                {% for project in projects %}
+                    <a href="#">
+                        <img src="{{ asset('build/images/' ~ project.media) }}" alt="">
+                    </a>
+                {% endfor %}
             </section>
         </section>
 
         <section class="sec-sante">
             <a id="sante-title"><h2>SANTÉ</h2></a>
             <h3>ALERT COVID 19</h3>
-            <p class="sante-txt">Pour faire face à la crise sanitaire Covid-19 en RCA , Lô-Bâ est pleinement engagée dans une réponse ciblée aux enjeux sanitaires posés par cette pandémie. Compte tenu de la situation d’urgence, Lô-Bâ mobilise l’ensemble de ses équipes et de ses moyens pour apporter des réponses justes, rapides et adaptées aux besoins exprimés sur le terrain, avec pour objectif prioritaire de renforcer les systèmes de santé les plus vulnérables et de soutenir les acteurs engagés dans cette lutte qui nous concerne toutes et tous.</p>
+            <p class="sante-txt">Pour faire face à la crise sanitaire Covid-19 en RCA , Lô-Bâ est pleinement engagée
+                dans une réponse ciblée aux enjeux sanitaires posés par cette pandémie. Compte tenu de la situation
+                d’urgence, Lô-Bâ mobilise l’ensemble de ses équipes et de ses moyens pour apporter des réponses justes,
+                rapides et adaptées aux besoins exprimés sur le terrain, avec pour objectif prioritaire de renforcer les
+                systèmes de santé les plus vulnérables et de soutenir les acteurs engagés dans cette lutte qui nous
+                concerne toutes et tous.</p>
 
             <h3>CONSTATS</h3>
             <p class="sante-txt">
-                L’hygiène et la prévention à l’infection sont indispensables dans les hôpitaux et centres de soins. La saleté, les micro-organismes et les microbes peuvent avoir des conséquences dévastatrices. Il s’agit de facteurs critiques dont plusieurs vies dépendent. Dans les hôpitaux de premier niveau  il y a rupture régulière des consommables tels que les gants, l’eau de javel, le savon. A cela s’ajoutent une insuffisance des pratiques d’hygiène par les professionnels de santé et une insuffisance des connaissances sur les risques et les moyens de prévention des ces risques pendant les soins.
-                En effet, nous avons constaté un faible niveau de la tenue professionnelle des professionnels de santé. Seulement 63,16 % des professionnels de santé portent à la fois une tenue de travail, qui est propre et adaptée au métier.
-                Ce constat soulève une réflexion sur une prise de conscience à générer et à accompagner auprès des professionnels de santé et des gestionnaires pour rentrer dans la culture de la lutte contre les infections associées aux soins.
+                L’hygiène et la prévention à l’infection sont indispensables dans les hôpitaux et centres de soins. La
+                saleté, les micro-organismes et les microbes peuvent avoir des conséquences dévastatrices. Il s’agit de
+                facteurs critiques dont plusieurs vies dépendent. Dans les hôpitaux de premier niveau il y a rupture
+                régulière des consommables tels que les gants, l’eau de javel, le savon. A cela s’ajoutent une
+                insuffisance des pratiques d’hygiène par les professionnels de santé et une insuffisance des
+                connaissances sur les risques et les moyens de prévention des ces risques pendant les soins.
+                En effet, nous avons constaté un faible niveau de la tenue professionnelle des professionnels de santé.
+                Seulement 63,16 % des professionnels de santé portent à la fois une tenue de travail, qui est propre et
+                adaptée au métier.
+                Ce constat soulève une réflexion sur une prise de conscience à générer et à accompagner auprès des
+                professionnels de santé et des gestionnaires pour rentrer dans la culture de la lutte contre les
+                infections associées aux soins.
             </p>
 
             <h3>ACTIONS</h3>
             <p class="sante-txt">
-                Lô-Ba met au point des solutions pour combattre la maladie et améliorer la santé. Le message est claire: les solutions aux problèmes sanitaires de l'Afrique sont à notre portée. Ces solutions ne peuvent cependant être trouvées qu'en enforçant le rôle de tutelle des gouvernements dans le domaine de la santé et en s'appuyant sur les enseignements tirés des interventions sanitaires qui ont réussi, comme sur une collaboration plus étroite entre tous les partenaires.
+                Lô-Ba met au point des solutions pour combattre la maladie et améliorer la santé. Le message est claire:
+                les solutions aux problèmes sanitaires de l'Afrique sont à notre portée. Ces solutions ne peuvent
+                cependant être trouvées qu'en enforçant le rôle de tutelle des gouvernements dans le domaine de la santé
+                et en s'appuyant sur les enseignements tirés des interventions sanitaires qui ont réussi, comme sur une
+                collaboration plus étroite entre tous les partenaires.
             </p>
 
             <h3>NOS ACTIVITÉS</h3>
             <ul class="sante-txt">
-                <li>e-Santé : L'ONG Lô-Ba contribue à la mise en place des outils numériques au service de la santé : formation à distance de personnel médical grâce au e-learning et au m-learning, diagnostics à distance grâce à la télémédecine, télétransmission d’information sanitaires et suivi des patients grâce à la téléphonie mobile (applications, SMS)…</li>
-                <li>Mise en place de toilettes sèches dans les espaces publiques. Le projet est fondé sur la réutilisation et la conservation des resources naturelles et a pour objectif de preserver la santé humaine, d'augmenter la fertilité des sols et de réduire les nuisances causées à l'environnement.</li>
-                <li>Création de centres de santé communautaire multisectoriels qui livrent des services et des programmes intégrés et centrés sur des personnes qui reflètent les besoins et les priorités des communautés diverses (consultations pre-natal, gérontologie, kinésithérapie, médecine scolaire, médecine du travail).</li>
+                <li>e-Santé : L'ONG Lô-Ba contribue à la mise en place des outils numériques au service de la santé :
+                    formation à distance de personnel médical grâce au e-learning et au m-learning, diagnostics à
+                    distance grâce à la télémédecine, télétransmission d’information sanitaires et suivi des patients
+                    grâce à la téléphonie mobile (applications, SMS)…
+                </li>
+                <li>Mise en place de toilettes sèches dans les espaces publiques. Le projet est fondé sur la
+                    réutilisation et la conservation des resources naturelles et a pour objectif de preserver la santé
+                    humaine, d'augmenter la fertilité des sols et de réduire les nuisances causées à l'environnement.
+                </li>
+                <li>Création de centres de santé communautaire multisectoriels qui livrent des services et des
+                    programmes intégrés et centrés sur des personnes qui reflètent les besoins et les priorités des
+                    communautés diverses (consultations pre-natal, gérontologie, kinésithérapie, médecine scolaire,
+                    médecine du travail).
+                </li>
             </ul>
         </section>
     </div>
@@ -50,40 +73,77 @@
         <section class="sec-agri">
             <a id="agri-title"><h2>AGRICULTURE</h2></a>
             <p class="agri-txt">
-                Lô-Bâ Internationale intervient sur le développement rural et les filières agroalimentaires, en recherchant des modèles favorisant la durabilité sociale, économique et environnementale de l'agriculture familiale.
+                Lô-Bâ Internationale intervient sur le développement rural et les filières agroalimentaires, en
+                recherchant des modèles favorisant la durabilité sociale, économique et environnementale de
+                l'agriculture familiale.
             </p>
             <p class="agri-txt">
-                L’approche de Lô-Ba se fonde sur une intégration des dimensions foncières, productive (en favorisant des approches agro-écologiques) et commerciale :
+                L’approche de Lô-Ba se fonde sur une intégration des dimensions foncières, productive (en favorisant des
+                approches agro-écologiques) et commerciale :
             </p>
             <ul class="agri-txt">
-                <li>L’amélioration des méthodes de production agricole et d’élevage, la diversification et l’amélioration de la productivité du travail et des sols.</li>
-                <li>L’appui à l’élaboration et la mise en œuvre de politiques foncières concertées et décentralisées visant la sécurisation foncière des producteurs ruraux.</li>
-                <li>La structuration des filières et l’approvisionnement alimentaire des villes, des marchés nationaux et régionaux, avec un rôle central des entreprises.</li>
+                <li>L’amélioration des méthodes de production agricole et d’élevage, la diversification et
+                    l’amélioration de la productivité du travail et des sols.
+                </li>
+                <li>L’appui à l’élaboration et la mise en œuvre de politiques foncières concertées et décentralisées
+                    visant la sécurisation foncière des producteurs ruraux.
+                </li>
+                <li>La structuration des filières et l’approvisionnement alimentaire des villes, des marchés nationaux
+                    et régionaux, avec un rôle central des entreprises.
+                </li>
                 <li>L’emploi des femmes et des jeunes.</li>
-                <li>Le renforcement des capacités des organisations de producteurs et des organisations professionnelles et l’appui à la création de cadres interprofessionnels.</li>
+                <li>Le renforcement des capacités des organisations de producteurs et des organisations professionnelles
+                    et l’appui à la création de cadres interprofessionnels.
+                </li>
             </ul>
 
             <h3>OBJECTIFS</h3>
             <p class="agri-txt">
-                Intervenir sur le développement rural et les filières agroalimentaires, en recherchant des modèles favorisant la durabilité sociale, économique et environnementale de l'agriculture familiale.
+                Intervenir sur le développement rural et les filières agroalimentaires, en recherchant des modèles
+                favorisant la durabilité sociale, économique et environnementale de l'agriculture familiale.
             </p>
             <p class="agri-txt">
-                L’approche de Lô-Ba se fonde sur une intégration des dimensions foncières, productive (en favorisant des approches agro-écologiques) et commerciale :
+                L’approche de Lô-Ba se fonde sur une intégration des dimensions foncières, productive (en favorisant des
+                approches agro-écologiques) et commerciale :
             </p>
             <ul class="agri-txt">
-                <li>L’amélioration des méthodes de production agricole et d’élevage, la diversification et l’amélioration de la productivité du travail et des sols.</li>
-                <li>L’appui à l’élaboration et la mise en œuvre de politiques foncières concertées et décentralisées visant la sécurisation foncière des petits producteurs ruraux.</li>
-                <li>La structuration des filières et l’approvisionnement alimentaire des villes et des marchés nationaux et régionaux, avec un rôle central des petites entreprises de transformation dans cette structuration.</li>
+                <li>L’amélioration des méthodes de production agricole et d’élevage, la diversification et
+                    l’amélioration de la productivité du travail et des sols.
+                </li>
+                <li>L’appui à l’élaboration et la mise en œuvre de politiques foncières concertées et décentralisées
+                    visant la sécurisation foncière des petits producteurs ruraux.
+                </li>
+                <li>La structuration des filières et l’approvisionnement alimentaire des villes et des marchés nationaux
+                    et régionaux, avec un rôle central des petites entreprises de transformation dans cette
+                    structuration.
+                </li>
                 <li>l’emploi des femmes et des jeunes filles.</li>
-                <li>Le renforcement des capacités des organisations de producteurs et des organisations professionnelles et l’appui à la création de cadres interprofessionnels.</li>
+                <li>Le renforcement des capacités des organisations de producteurs et des organisations professionnelles
+                    et l’appui à la création de cadres interprofessionnels.
+                </li>
             </ul>
         </section>
 
         <section class="sec-educ">
             <a id="educ-title"><h2>ÉDUCATION</h2></a>
             <p class="educ-txt">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad commodi fuga magni minima totam vero. Accusamus accusantium amet cum minima?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dignissimos earum est eum explicabo iure magni natus nesciunt nobis quam quasi quod, recusandae saepe tenetur voluptas. A excepturi incidunt quidem velit! Adipisci alias aliquam asperiores autem commodi consectetur consequuntur corporis dicta dolores eaque earum excepturi exercitationem expedita iure laborum neque nisi optio quia quo quos reprehenderit repudiandae, suscipit veritatis. Amet animi atque blanditiis consequatur cumque delectus dignissimos dolor excepturi expedita facere facilis fuga harum ipsa iste iusto magni maxime molestiae nam pariatur perspiciatis porro, provident quasi rem reprehenderit sunt veniam voluptate voluptatum. Ab beatae deserunt dolor eaque expedita in ipsum laborum molestiae neque reiciendis, sequi, soluta temporibus ullam veniam voluptate? Accusamus delectus explicabo id laudantium magni nemo provident quia ratione! Alias assumenda atque corporis cumque cupiditate ducimus ea, earum eos ex fugiat in iure libero, maiores minus nemo non nostrum numquam officiis provident quae quaerat quasi quia ratione sed similique sint soluta suscipit tenetur vel vitae! Animi delectus iure libero nam quidem! A assumenda at commodi culpa, cupiditate debitis dicta enim eos exercitationem, incidunt iure libero magnam, nihil perferendis similique sint sit unde? Adipisci aliquid atque autem dicta dolorem ipsa minima nam obcaecati omnis quam, quis rem veritatis, vitae voluptatem.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad commodi fuga magni minima totam vero.
+                Accusamus accusantium amet cum minima?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dignissimos earum est eum explicabo iure
+                magni natus nesciunt nobis quam quasi quod, recusandae saepe tenetur voluptas. A excepturi incidunt
+                quidem velit! Adipisci alias aliquam asperiores autem commodi consectetur consequuntur corporis dicta
+                dolores eaque earum excepturi exercitationem expedita iure laborum neque nisi optio quia quo quos
+                reprehenderit repudiandae, suscipit veritatis. Amet animi atque blanditiis consequatur cumque delectus
+                dignissimos dolor excepturi expedita facere facilis fuga harum ipsa iste iusto magni maxime molestiae
+                nam pariatur perspiciatis porro, provident quasi rem reprehenderit sunt veniam voluptate voluptatum. Ab
+                beatae deserunt dolor eaque expedita in ipsum laborum molestiae neque reiciendis, sequi, soluta
+                temporibus ullam veniam voluptate? Accusamus delectus explicabo id laudantium magni nemo provident quia
+                ratione! Alias assumenda atque corporis cumque cupiditate ducimus ea, earum eos ex fugiat in iure
+                libero, maiores minus nemo non nostrum numquam officiis provident quae quaerat quasi quia ratione sed
+                similique sint soluta suscipit tenetur vel vitae! Animi delectus iure libero nam quidem! A assumenda at
+                commodi culpa, cupiditate debitis dicta enim eos exercitationem, incidunt iure libero magnam, nihil
+                perferendis similique sint sit unde? Adipisci aliquid atque autem dicta dolorem ipsa minima nam
+                obcaecati omnis quam, quis rem veritatis, vitae voluptatem.
             </p>
         </section>
     </div>
