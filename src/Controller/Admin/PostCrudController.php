@@ -42,6 +42,7 @@ class PostCrudController extends AbstractCrudController
             ->setLabel('Created by')
             ->hideOnForm();
         yield ImageField::new('media')
+            ->setRequired(false)
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
