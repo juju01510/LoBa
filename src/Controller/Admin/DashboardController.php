@@ -57,9 +57,11 @@ class DashboardController extends AbstractDashboardController
 
     public function configureUserMenu(UserInterface $user): UserMenu
     {
+//        $userId = $this->getUser->getId();
+
         return parent::configureUserMenu($user)
             ->setMenuItems([
-//                MenuItem::linkToUrl('Profile','fa fa-user', $this->generateUrl())
+                MenuItem::linkToRoute('Profile', 'fa fa-user', 'app_user_profile', ['id' => 32]),
                 MenuItem::linkToUrl('Sign out', 'fa fa-sign-out', $this->generateUrl('app_logout'))
             ]);
     }

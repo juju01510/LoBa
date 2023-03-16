@@ -40,21 +40,6 @@ class UserCrudController extends AbstractCrudController
             ->disable(Action::EDIT);
     }
 
-//    public function configureFields(string $pageName): iterable
-//    {
-//        yield TextField::new('firstname');
-//        yield TextField::new('lastname');
-//        yield EmailField::new('email');
-//        yield TextField::new('password');
-//
-//        $roles = ['ROLE_ADMIN'];
-//        yield ChoiceField::new('roles')
-//            ->setChoices(array_combine($roles, $roles))
-//            ->allowMultipleChoices()
-//            ->renderExpanded()
-//            ->renderAsBadges();
-//    }
-
     public function configureFields(string $pageName): iterable
     {
         $roles = ['ROLE_ADMIN'];
