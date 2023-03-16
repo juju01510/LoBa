@@ -42,7 +42,20 @@
           display: grid;
           row-gap: 1em;
 
-          input, textarea{
+          input{
+            width: 100%;
+            border: none;
+            outline: none;
+            background-color: var(--main-color-black);
+            color: var(--main-color-white);
+            padding: 10px;
+            font-family: var(--reg-font);
+            font-size: 0.9em;
+            border-radius: 0.4em;
+          }
+
+          textarea{
+            font-family: var(--reg-font);
             width: 100%;
             border: none;
             outline: none;
@@ -51,11 +64,13 @@
             padding: 10px;
             font-size: 0.9em;
             border-radius: 0.4em;
-          }
 
-          textarea{
             resize: none;
             height: 200px;
+          }
+
+          textarea::placeholder{
+            font-size: 0.9em;
           }
 
           .send-button{
