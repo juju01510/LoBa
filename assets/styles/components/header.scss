@@ -8,7 +8,7 @@ nav{
   width: 100%;
   height: 75px;
   //background-color: var(--main-color-black);
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.6);
   padding: 0 100px;
@@ -16,8 +16,8 @@ nav{
   transition: .5s;
 
   .Logo_loba{
-    max-width: 120px;
-    margin-top: 65px;
+    max-width: 180px;
+    margin-top: 110px;
   }
 
   ul{
@@ -29,7 +29,7 @@ nav{
       padding: 0 20px;
     }
     li a{
-      font-size: 1em;
+      font-size: 1.2em;
       color: var(--main-color-black);
     }
     li a:hover{

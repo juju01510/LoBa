@@ -53,6 +53,7 @@ section{
     .sec-pictos{
       display: flex;
       flex-direction: row;
+      //flex-wrap: wrap;
 
       .pictos-links{
         display: flex;
