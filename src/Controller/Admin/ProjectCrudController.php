@@ -24,11 +24,13 @@ class ProjectCrudController extends AbstractCrudController
     {
         yield TextField::new('title');
         yield ImageField::new('icon')
+            ->setRequired(false)
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
         yield TextEditorField::new('content');
         yield ImageField::new('media')
+            ->setRequired(false)
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');

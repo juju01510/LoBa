@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\Commentary;
 use App\Entity\Introduction;
+use App\Entity\Partners;
 use App\Entity\Post;
 use App\Entity\Project;
 use App\Entity\Section;
@@ -57,7 +59,7 @@ class DashboardController extends AbstractDashboardController
     {
         return parent::configureUserMenu($user)
             ->setMenuItems([
-//                MenuItem::linkToUrl('Profile','fa fa-user', $this->generateUrl())
+                MenuItem::linkToRoute('Profile', 'fa fa-user', 'app_user_profile', ['id' => $this->getUser()->getId()]),
                 MenuItem::linkToUrl('Sign out', 'fa fa-sign-out', $this->generateUrl('app_logout'))
             ]);
     }
@@ -65,20 +67,32 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
 //        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-dashboard');
-        yield MenuItem::linkToUrl('Website', 'fa fa-home', $this->generateUrl('app_home'));
+        yield MenuItem::linkToUrl('Website', 'fa fa-solid fa-globe', $this->generateUrl('app_home'));
+
+        yield MenuItem::section('', '');
+
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', Commentary::class);
 
-        yield MenuItem::section('Homepage', 'fa fa-home');
-        yield MenuItem::linkToCrud('Introduction', 'fas fa-list', Introduction::class);
-        yield MenuItem::linkToCrud('Sections', 'fas fa-list', Section::class);
+        yield MenuItem::section('', '');
 
+        yield MenuItem::subMenu('Homepage', 'fa fa-home')->setSubItems([
+            MenuItem::linkToCrud('Introduction', '',Introduction::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Sections', '',Section::class)->setAction(Crud::PAGE_INDEX),
+        ]);
 
-        yield MenuItem::section('Project page', 'fa fa-book');
-        yield MenuItem::linkToCrud('Projects', 'fas fa-list', Project::class);
+        yield MenuItem::subMenu('Project page', 'fa fa-list-check')->setSubItems([
+            MenuItem::linkToCrud('Projects', '',Project::class)->setAction(Crud::PAGE_INDEX),
+        ]);
 
-        yield MenuItem::section('Blog page', 'fa fa-blog ');
-        yield MenuItem::linkToCrud('Posts', 'fas fa-list', Post::class);
-        yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
+        yield MenuItem::subMenu('News page', 'fa fa-newspaper-o')->setSubItems([
+            MenuItem::linkToCrud('News', '',Post::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Categories', '',Category::class)->setAction(Crud::PAGE_INDEX),
+        ]);
+
+        yield MenuItem::subMenu('Partners page', 'fa fa-handshake-o')->setSubItems([
+            MenuItem::linkToCrud('Partners', '',Partners::class)->setAction(Crud::PAGE_INDEX),
+        ]);
     }
 
     public function configureActions(): Actions

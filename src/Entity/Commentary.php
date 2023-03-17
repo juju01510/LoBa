@@ -20,11 +20,14 @@ class Commentary
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $dateCreated = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commentaries')]
-    private ?User $user = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $subject = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commentaries')]
-    private ?Post $post = null;
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $author = null;
 
     public function getId(): ?int
     {
@@ -55,26 +58,38 @@ class Commentary
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getSubject(): ?string
     {
-        return $this->user;
+        return $this->subject;
     }
 
-    public function setUser(?User $user): self
+    public function setSubject(?string $subject): self
     {
-        $this->user = $user;
+        $this->subject = $subject;
 
         return $this;
     }
 
-    public function getPost(): ?Post
+    public function getEmail(): ?string
     {
-        return $this->post;
+        return $this->email;
     }
 
-    public function setPost(?Post $post): self
+    public function setEmail(string $email): self
     {
-        $this->post = $post;
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

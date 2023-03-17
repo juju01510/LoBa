@@ -6,6 +6,7 @@ use App\Entity\Post;
 use App\Entity\Section;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
@@ -21,7 +22,6 @@ class SectionCrudController extends AbstractCrudController
         return Section::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('title');
@@ -31,6 +31,12 @@ class SectionCrudController extends AbstractCrudController
         yield BooleanField::new('available')
             ->renderAsSwitch(false)
             ->onlyOnIndex();
+    }
+
+    public function configureFilters(Filters $filters): Filters
+    {
+        return parent::configureFilters($filters)
+            ->add('available',);
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
