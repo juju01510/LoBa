@@ -26,13 +26,10 @@ class IntroductionCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         return parent::configureActions($actions)
-            ->update(Crud::PAGE_INDEX, Action::NEW, static function(Action $action) {
-                $action->displayIf(static function (Introduction $introduction) {
-                    return $introduction->getId();
-                });
-                return $action;
-            });
+            ->disable(Action::NEW)
+            ->disable(Action::DELETE);
     }
+
 
     public function configureFields(string $pageName): iterable
     {
