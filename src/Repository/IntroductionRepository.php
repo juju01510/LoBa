@@ -54,13 +54,11 @@ class IntroductionRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Introduction
-//    {
-//        return $this->createQueryBuilder('i')
-//            ->andWhere('i.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findIntro(): ?Introduction
+    {
+        return $this->createQueryBuilder('i')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

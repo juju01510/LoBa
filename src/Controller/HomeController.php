@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\IntroductionRepository;
+use App\Repository\SectionRepository;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,9 +14,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository): Response
     {
-        return $this->render('base.html.twig');
+        $intro = $introductionRepository->findIntro();
+
+        $sections = $sectionRepository->findByAvailable();
+
+        return $this->render('base.html.twig', [
+            'intro' => $intro,
+            'sections' => $sections
+        ]);
     }
 
     #[Route('/test', name: 'app_test')]
