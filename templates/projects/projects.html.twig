@@ -3,13 +3,14 @@
 {% block title %}Projects Lô-Ba{% endblock %}
 
 {% block main %}
+
     <div class="sectionProjOne">
         <section class="proj-intro">
             <h1>NOS PROJETS</h1>
             <section class="sec-pictos">
                 {% for project in projects %}
                     <a href="#">
-                        <img src="{{ asset('build/images/' ~ project.media) }}" alt="">
+                        <img src="{{ asset('uploads/images/' ~ project.icon) }}" alt="">
                     </a>
                 {% endfor %}
             </section>

@@ -18,7 +18,7 @@ class MessageType extends AbstractType
             ->add('email', EmailType::class)
             ->add('subject')
             ->add('content')
-            ->add('Send', SubmitType::class)
+//            ->add('Send', SubmitType::class)
         ;
     }
 
