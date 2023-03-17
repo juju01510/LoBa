@@ -9,7 +9,7 @@
             <section class="sec-pictos">
                 {% for project in projects %}
                     <a href="#">
-                        <img src="{{ asset('build/images/' ~ project.media) }}" alt="">
+                        <img src="{{ asset('uploads/images/' ~ project.media) }}" alt="">
                     </a>
                 {% endfor %}
             </section>
@@ -18,7 +18,7 @@
         {% for project in projects %}
             <section class="sec-sante">
                 <a id="sante-title"><h2>{{project.title}}</h2></a>
-               {{ project.content }}
+                <div class="content">{{ project.content|raw }}</div>
             </section>
         {% endfor %}
     </div>
