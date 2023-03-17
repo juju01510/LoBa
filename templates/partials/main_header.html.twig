@@ -10,7 +10,9 @@
             <li><a href="{{ path('app_testtttt') }}">Partenaires</a></li>
             <li><a href="{{ path('app_testttttt') }}">Contact</a></li>
             <li><a href="#">Dons</a></li>
-{#            <li><a href="{{ path('app_testtt') }}">Connexion</a></li>#}
+            {% if is_granted('ROLE_ADMIN')%}
+                <li><a href="{{ path('admin') }}">Admin</a></li>
+            {% endif %}
         </ul>
 
         <a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3) organization</a>
