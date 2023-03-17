@@ -2,69 +2,67 @@
 
     <img class="Logo_loba" src="{{ asset('build/images/Logo_loba.svg') }}" alt="Logo Lô-Ba">
 
+    <div class="navlinks">
         <ul>
             <li><a href="{{ path('app_home') }}">Accueil</a></li>
             <li><a href="{{ path('app_projects') }}">Projets</a></li>
-            <li><a href="{{ path('app_blog') }}">Blog</a></li>
+            <li><a href="{{ path('app_blog') }}">News</a></li>
             <li><a href="{{ path('app_testtttt') }}">Partenaires</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ path('app_testttttt') }}">Contact</a></li>
             <li><a href="#">Dons</a></li>
-            <li><a href="{{ path('app_testtt') }}">Connexion</a></li>
-
+{#            <li><a href="{{ path('app_testtt') }}">Connexion</a></li>#}
         </ul>
 
-{#        <a class="btn-co" href="{{ path('app_testtt') }}">Connexion</a>#}
+        <a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3) organization</a>
 
-    <a target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3) organization</a>
-
-
-    <label>
-        <select name="language">
-            <option value="english" selected>En</option>
-            <option value="français">Fr</option>
-        </select>
-    </label>
+        <label>
+            <select name="language">
+                <option value="english" selected>En</option>
+                <option value="français">Fr</option>
+            </select>
+        </label>
+    </div>
 
     <!-- Menu burger -->
-{#    <div class="containner" onclick="this.classList.toggle('active')">#}
-{#        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 200 200">#}
-{#            <g stroke-width="6.5" stroke-linecap="round">#}
-{#                <path#}
-{#                        d="M72 82.286h28.75"#}
-{#                        fill="#009100"#}
-{#                        fill-rule="evenodd"#}
-{#                        stroke="#fff"#}
-{#                />#}
-{#                <path#}
-{#                        d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"#}
-{#                        fill="none"#}
-{#                        stroke="#fff"#}
-{#                />#}
-{#                <path#}
-{#                        d="M72 125.143h28.75"#}
-{#                        fill="#009100"#}
-{#                        fill-rule="evenodd"#}
-{#                        stroke="#fff"#}
-{#                />#}
-{#                <path#}
-{#                        d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"#}
-{#                        fill="none"#}
-{#                        stroke="#fff"#}
-{#                />#}
-{#                <path#}
-{#                        d="M100.75 82.286h28.75"#}
-{#                        fill="#009100"#}
-{#                        fill-rule="evenodd"#}
-{#                        stroke="#fff"#}
-{#                />#}
-{#                <path#}
-{#                        d="M100.75 125.143h28.75"#}
-{#                        fill="#009100"#}
-{#                        fill-rule="evenodd"#}
-{#                        stroke="#fff"#}
-{#                />#}
-{#            </g>#}
-{#        </svg>#}
-{#    </div>#}
+    <div class="containner" onclick="this.classList.toggle('active')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 200 200">
+            <g stroke-width="6.5" stroke-linecap="round">
+                <path
+                        d="M72 82.286h28.75"
+                        fill="#009100"
+                        fill-rule="evenodd"
+                        stroke="var(--main-color-orange)"
+                />
+                <path
+                        d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
+                        fill="none"
+                        stroke="var(--main-color-orange)"
+                />
+                <path
+                        d="M72 125.143h28.75"
+                        fill="#009100"
+                        fill-rule="evenodd"
+                        stroke="var(--main-color-orange)"
+                />
+                <path
+                        d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
+                        fill="none"
+                        stroke="var(--main-color-orange)"
+                />
+                <path
+                        d="M100.75 82.286h28.75"
+                        fill="#009100"
+                        fill-rule="evenodd"
+                        stroke="var(--main-color-orange)"
+                />
+                <path
+                        d="M100.75 125.143h28.75"
+                        fill="#009100"
+                        fill-rule="evenodd"
+                        stroke="var(--main-color-orange)"
+                />
+            </g>
+        </svg>
+    </div>
     <!-- Fin menu burger -->
 </nav>

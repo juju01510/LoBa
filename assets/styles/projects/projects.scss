@@ -26,8 +26,9 @@ section{
       text-align: center;
       font-family: var(--bold-font), Helvetica, sans-serif;
       font-size: 2.5em;
-      color: var(--main-color-white);
+      color: var(--main-color-orange);
       background-color: var(--main-color-black);
+      border: 2px solid var(--main-color-orange);
       max-width: 400px;
       border-radius: 30px;
       padding: 0.2em 1em;
@@ -52,6 +53,7 @@ section{
     .sec-pictos{
       display: flex;
       flex-direction: row;
+      //flex-wrap: wrap;
 
       .pictos-links{
         display: flex;

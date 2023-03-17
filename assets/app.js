@@ -13,4 +13,5 @@ import './bootstrap';
 
 // Les JS
 import "./styles/components/navhide";
+import "./styles/components/burger";
 import "./styles/register/register";
