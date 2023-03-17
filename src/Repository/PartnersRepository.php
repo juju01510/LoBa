@@ -42,17 +42,15 @@ class PartnersRepository extends ServiceEntityRepository
 //    /**
 //     * @return Partners[] Returns an array of Partners objects
 //     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findAvailable(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.available = :val')
+            ->setParameter('val', true)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Partners
 //    {
