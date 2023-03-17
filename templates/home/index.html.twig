@@ -6,17 +6,17 @@
     <div class="sectionOne">
 
         <section class="sec-intro">
-            <p class="intro">
-                {{ intro.content }}
-            </p>
+            <div class="intro">
+                {{ intro.content|raw }}
+            </div>
         </section>
 
         {% for section in sections %}
             <section class="sec-mission">
                 <h2 class="mission-title">{{ section.title }}</h2>
-                <p class="mission-txt">
-                    {{ section.content }}
-                </p>
+                <div class="mission-txt">
+                    {{ section.content|raw }}
+                </div>
             </section>
         {% endfor %}
     </div>

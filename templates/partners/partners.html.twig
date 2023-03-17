@@ -23,6 +23,13 @@
                             <img src="{{ asset('build/images/LogoJu.png') }}" alt="logo Julien Asinari" style="float:left">
                             <p><a href="https://juju01510.github.io/CV-Portfolio/" target="_blank">Julien Asinari</a></p>
                         </li>
+
+                        {% for partner in partners %}
+                        <li>
+                            <img src="{{ asset('uploads/images/' ~ partner.logo) }}" alt="logo {{ partner.name }}" style="float:left">
+                            <p><a href="{{ partner.link }}" target="_blank">{{ partner.name }}</a></p>
+                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

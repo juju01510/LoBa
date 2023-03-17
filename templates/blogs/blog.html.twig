@@ -13,16 +13,16 @@
         <section class="sec-blogList">
             <div class="blog-res">
                 <h1 id="blog-title">{{ post.title }}</h1>
-                <p class="blog-ac">
-                    {{ post.content }}
-                </p>
+                <div class="blog-ac">
+                    {{ post.content|raw }}
+                </div>
             </div>
-            <div class="blog-dev">
-                <h2 id="blog-miniTitle"> {{ post.title }}</h2>
-                <p class="blog-txt">
-                    {{ post.content }}
-                </p>
-            </div>
+{#            <div class="blog-dev">#}
+{#                <h2 id="blog-miniTitle"> {{ post.title }}</h2>#}
+{#                <div class="blog-txt">#}
+{#                    {{ post.content|raw }}#}
+{#                </div>#}
+{#            </div>#}
         </section>
     </div>
 {% endblock %}

@@ -17,9 +17,9 @@
                 <a href="{{ path('app_blog_post', { post:post.id}) }}">
                     <div class="blog-resume">
                         <h2 id="blogs-title">{{ post.title }}</h2>
-                        <p class="blogs-txt">
-                            {{ post.content }}
-                        </p>
+                        <div class="blogs-txt">
+                            {{ post.content|striptags|slice(0,150) }}
+                        </div>
                     </div>
                 </a>
             </section>
