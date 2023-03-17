@@ -30,7 +30,6 @@ class IntroductionCrudController extends AbstractCrudController
             ->disable(Action::DELETE);
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         yield TextEditorField::new('content');

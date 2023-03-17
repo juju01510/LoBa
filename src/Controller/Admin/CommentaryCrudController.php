@@ -28,6 +28,7 @@ class CommentaryCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        yield TextField::new('author');
         yield TextField::new('email');
         yield DateTimeField::new('dateCreated')
             ->setLabel('Created on')
