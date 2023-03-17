@@ -3,13 +3,14 @@
 {% block title %}Projects Lô-Ba{% endblock %}
 
 {% block main %}
+
     <div class="sectionProjOne">
         <section class="proj-intro">
             <h1>NOS PROJETS</h1>
             <section class="sec-pictos">
                 {% for project in projects %}
                     <a href="#">
-                        <img src="{{ asset('uploads/images/' ~ project.media) }}" alt="">
+                        <img src="{{ asset('uploads/images/' ~ project.icon) }}" alt="">
                     </a>
                 {% endfor %}
             </section>
@@ -17,7 +18,7 @@
 
         {% for project in projects %}
             <section class="sec-sante">
-                <a id="sante-title"><h2>{{project.title}}</h2></a>
+                <a id="sante-title"><h2>{{ project.title }}</h2></a>
                 <div class="content">{{ project.content|raw }}</div>
             </section>
         {% endfor %}
