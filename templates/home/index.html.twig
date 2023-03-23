@@ -6,6 +6,9 @@
     <div class="sectionOne">
 
         <section class="sec-intro">
+            {% for message in app.flashes('message') %}
+                <div>{{ message }}</div>
+            {% endfor %}
             <div class="intro">
                 {{ intro.content|raw }}
             </div>

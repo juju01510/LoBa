@@ -28,6 +28,7 @@ class Users
     public function __construct()
     {
         $this->setCreatedAt(new \DateTimeImmutable());
+        $this->setIsValid(false);
     }
 
     public function getId(): ?int
@@ -78,7 +79,7 @@ class Users
 
     public function setIsValid(bool $is_valid): self
     {
-        $this->is_valid = false;
+        $this->is_valid = $is_valid;
 
         return $this;
     }
