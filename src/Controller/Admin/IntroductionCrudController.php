@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -36,6 +37,11 @@ class IntroductionCrudController extends AbstractCrudController
         yield TextField::new('User')
             ->setLabel('Created by')
             ->hideOnForm();
+        yield ImageField::new('background')
+            ->setRequired(false)
+            ->setUploadDir('public/uploads/images')
+            ->setBasePath('uploads/images')
+            ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void

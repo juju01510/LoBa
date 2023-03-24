@@ -3,12 +3,9 @@
 {# {% block title %}Home Lô-Ba{% endblock %} #}
 
 {% block main %}
-    <div class="sectionOne">
+    <div style="background-image: url('{{ asset('uploads/images/' ~ intro.background) }}')" class="sectionOne">
 
         <section class="sec-intro">
-            {% for message in app.flashes('message') %}
-                <div>{{ message }}</div>
-            {% endfor %}
             <div class="intro">
                 {{ intro.content|raw }}
             </div>
