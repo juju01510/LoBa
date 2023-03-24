@@ -35,16 +35,17 @@ class NewsletterUserController extends AbstractController
             $userRepository->save($user, true);
 
             $email = (new TemplatedEmail())
-                ->from('julien.asinari@live.fr')
-                ->to($user->getEmail())
-                ->subject('Votre inscription à la newsletter')
+                ->from('loba@loba.fr')
+                ->to('emilielesbros@gmail.com')
+                ->addTo('onglobainternational@gmail.com')
+                ->subject('Nouvel inscription à la newsletter Lô-bâ')
                 ->htmlTemplate('email/inscription.html.twig')
-//                ->context(compact('user', 'token'))
+                ->context(compact('user', 'token'))
             ;
 
             $mailer->send($email);
 
-            $this->addFlash('message', 'Validation email sent successfully !');
+            $this->addFlash('message', 'Thank you for subscribing to our newsletter!');
             return $this->redirectToRoute('app_home');
         }
 
