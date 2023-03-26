@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\IntroductionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +21,14 @@ class Introduction
 
     #[ORM\OneToOne(cascade: ['persist'])]
     private ?User $user = null;
+
+    #[ORM\OneToMany(mappedBy: 'introduction', targetEntity: Translation::class)]
+    private Collection $translations;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,6 +55,36 @@ class Introduction
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Translation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(Translation $translation): self
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setIntroduction($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTranslation(Translation $translation): self
+    {
+        if ($this->translations->removeElement($translation)) {
+            // set the owning side to null (unless already changed)
+            if ($translation->getIntroduction() === $this) {
+                $translation->setIntroduction(null);
+            }
+        }
 
         return $this;
     }
