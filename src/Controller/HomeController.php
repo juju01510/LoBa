@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\IntroductionRepository;
 use App\Repository\SectionRepository;
+use App\Repository\TranslationRepository;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,18 +14,33 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository): Response
-    {
-        $intro = $introductionRepository->findIntro();
+        #[Route('/', name: 'app_home')]
+        public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationRepository $translationRepository): Response
+        {
+            $locale = $request->query->get('lang') ?? 'default';
 
-        $sections = $sectionRepository->findByAvailable();
+            if ($locale === 'en') {
+                $locale = 'default';
+            }
 
-        return $this->render('base.html.twig', [
-            'intro' => $intro,
-            'sections' => $sections
-        ]);
-    }
+            if ($locale !== 'default') {
+                $request->setLocale($locale);
+            }
+
+            $translation = $translationRepository->findOneBy([
+                'keyword' => 'introduction.content',
+                'locale' => $locale
+            ]);
+
+            $intro = $introductionRepository->findIntro();
+
+            $sections = $sectionRepository->findByAvailable();
+
+            return $this->render('base.html.twig', [
+                'intro' => $locale === 'default' ? $intro->getContent() : $translation->getValue(),
+                'sections' => $sections
+            ]);
+        }
 
     #[Route('/test', name: 'app_test')]
     public function test(): Response

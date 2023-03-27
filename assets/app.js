@@ -13,6 +13,5 @@ import './bootstrap';
 
 // Les JS
 import "./styles/components/navhide";
-import "./styles/components/translation";
 import "./styles/components/burger";
 import "./styles/register/register";

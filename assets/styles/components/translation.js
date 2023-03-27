@@ -1,16 +1,12 @@
-const select = document.getElementById('language_select');
+// Récupération de la balise select et ajout de l'événement "change"
+const languageSelect = document.getElementById('language_select');
 
-select.addEventListener('change', (e) => {
-    const value = select.value;
+languageSelect.addEventListener('change', () => {
+    // Récupération de la valeur de la langue sélectionnée
+    const selectedLanguage = languageSelect.value;
 
-    let currentPath = window.location.pathname;
-    let newPath;
-
-    if (currentPath === "/") {
-        newPath = "/" + value;
-    } else {
-        newPath = currentPath + "/" + value;
-    }
-
-    window.location.href = newPath;
+    // Mise à jour de l'URL avec la nouvelle langue
+    const currentUrl = window.location.href;
+    const newUrl = currentUrl.replace(/\/(fr|en)($|\/)/, `/${selectedLanguage}/`);
+    window.location.href = newUrl;
 });

@@ -10,19 +10,21 @@
             <li><a href="{{ path('app_partners_index') }}">Partners</a></li>
             <li><a href="{{ path('app_message_new') }}">Contact</a></li>
             <li><a href="#">Donate</a></li>
-            {% if is_granted('ROLE_ADMIN')%}
+            {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin') }}">Admin</a></li>
             {% endif %}
         </ul>
 
-        <a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3) organization</a>
+        <a class="org" target="_blank"
+           href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501
+            (c) (3) organization</a>
 
-        <label>
-            <select id="language_select" name="language">
-                <option value="en" selected>En</option>
-                <option value="fr">Fr</option>
+        <form action="{{ path('app_home') }}" method="get">
+            <select id="language_select" name="lang" onchange="this.form.submit()">
+                <option value="en" {{ app.request.locale == 'en' ? 'selected' : '' }}>En</option>
+                <option value="fr" {{ app.request.locale == 'fr' ? 'selected' : '' }}>Fr</option>
             </select>
-        </label>
+        </form>
     </div>
 
     <!-- Menu burger -->
