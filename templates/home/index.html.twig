@@ -7,17 +7,38 @@
 
         <section class="sec-intro">
             <div class="intro">
-                {{ intro|raw }}
+                {% if locale == 'default' %}
+                    {{ intro.content|raw }}
+                {% else %}
+                    {% for i in intro %}
+                        {% for intro in i %}
+                            {{ intro['introduction.content'] }}
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </section>
 
-        {% for section in sections %}
-            <section class="sec-mission">
-                <h2 class="mission-title">{{ section.title }}</h2>
-                <div class="mission-txt">
-                    {{ section.content|raw }}
-                </div>
-            </section>
-        {% endfor %}
+        {% if locale == 'default' %}
+            {% for section in sections %}
+                <section class="sec-mission">
+                    <h2 class="mission-title">{{ section.title }}</h2>
+                    <div class="mission-txt">
+                        {{ section.content|raw }}
+                    </div>
+                </section>
+            {% endfor %}
+        {% else %}
+            {% for s in sections %}
+                {% for section in s %}
+                    <section class="sec-mission">
+                        <h2 class="mission-title">{{ section['section.title'] }}</h2>
+                        <div class="mission-txt">
+                            {{ section['section.content']|raw }}
+                        </div>
+                    </section>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}

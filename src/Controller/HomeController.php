@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\IntroductionRepository;
 use App\Repository\SectionRepository;
 use App\Repository\TranslationRepository;
+use App\Service\TranslationService;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
         #[Route('/', name: 'app_home')]
-        public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationRepository $translationRepository): Response
+        public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationService $translationService, TranslationRepository $translationRepository): Response
         {
             $locale = $request->query->get('lang') ?? 'default';
 
@@ -27,18 +28,18 @@ class HomeController extends AbstractController
                 $request->setLocale($locale);
             }
 
-            $translation = $translationRepository->findOneBy([
-                'keyword' => 'introduction.content',
-                'locale' => $locale
-            ]);
+            $sectionsTrans = $translationService->getTranslation($locale, $request, 'sections', $translationRepository, ['section.title', 'section.content']);
+            $introTrans = $translationService->getTranslation($locale, $request, 'introduction', $translationRepository, ['introduction.content']);
+
+            dump($sectionsTrans);
 
             $intro = $introductionRepository->findIntro();
-
             $sections = $sectionRepository->findByAvailable();
 
             return $this->render('base.html.twig', [
-                'intro' => $locale === 'default' ? $intro->getContent() : $translation->getValue(),
-                'sections' => $sections
+                'intro' => $locale === 'default' ? $intro : $introTrans,
+                'sections' => $locale === 'default' ? $sections : $sectionsTrans,
+                'locale' => $locale
             ]);
         }
 

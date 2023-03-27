@@ -24,8 +24,12 @@ class Translation
     private ?string $value = null;
 
     #[ORM\ManyToOne(inversedBy: 'translations')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Introduction $introduction = null;
+
+    #[ORM\ManyToOne(inversedBy: 'translations')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Section $section = null;
 
     public function getId(): ?int
     {
@@ -76,6 +80,18 @@ class Translation
     public function setIntroduction(?Introduction $introduction): self
     {
         $this->introduction = $introduction;
+
+        return $this;
+    }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }
