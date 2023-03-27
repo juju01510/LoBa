@@ -19,22 +19,40 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10em 1em 12em;
+    padding: 10rem 1rem 12rem;
+
+    h2{
+      display: block;
+      text-align: center;
+      font-family: var(--bold-font), Helvetica, sans-serif;
+      font-size: 2rem;
+      color: var(--main-color-black);
+      background-color: var(--main-color-white);
+      max-width: 300px;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      /* margin-top: 5em; */
+      margin-bottom: 2rem;
+    }
+
+    p{
+      max-width: 800px;
+      line-height: 2rem;
+      font-size: 1.2rem;
+      padding-top: 1rem;
+    }
+
+    ul{
+      li{
+        max-width: 800px;
+        line-height: 2rem;
+        font-size: 1.2rem;
+        padding-top: 1rem;
+      }
+    }
   }
 
-  section h2{
-    display: block;
-    text-align: center;
-    font-family: var(--bold-font), Helvetica, sans-serif;
-    font-size: 1.5em;
-    color: var(--main-color-black);
-    background-color: var(--main-color-white);
-    max-width: 300px;
-    border-radius: 30px;
-    padding: 0.2em 1em;
-    /* margin-top: 5em; */
-    margin-bottom: 2em;
-  }
+
 
   .sectionOne{
     background-image: url(../../images/africa-1089242_1920.jpg);
@@ -45,17 +63,17 @@ body{
     //margin-bottom: 100px;
     z-index: 1;
     width: 100%;
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    //clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
 
     .intro{
       max-width: 800px;
       background-color: rgba(255, 255, 255, 0.6);
       border-radius: 30px;
       color: var(--main-color-black);
-      font-size: 1.7em;
-      margin-top: 7em;
-      padding: 5em;
-      line-height: 1.5em;
+      font-size: 1.7rem;
+      margin-top: 5rem;
+      padding: 5rem;
+      line-height: 3rem;
 
       span{
         font-family: var(--bold-font);
@@ -65,25 +83,25 @@ body{
 
     .sec-mission{
       background-color: var(--main-color-orange);
-      padding: 10em 0 15em;
-      clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+      //padding: 5em 0 5em;
+      //clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
 
-      .mission-title{
-        color: var(--main-color-orange);
-        font-size: 2em;
-      }
-
-      .mission-txt{
-        max-width: 800px;
-        line-height: 1.5em;
-        font-size: 1.2em;
-        padding-top: 1em;
-      }
-
-      ul li{
-        //max-width: 500px;
-        padding-top: 1em;
-      }
+      //.mission-title{
+      //  color: var(--main-color-orange);
+      //  font-size: 2rem;
+      //}
+      //
+      //.mission-txt{
+      //  max-width: 800px;
+      //  line-height: 1.5rem;
+      //  font-size: 1.2rem;
+      //  padding-top: 1rem;
+      //}
+      //
+      //ul li{
+      //  //max-width: 500px;
+      //  padding-top: 1rem;
+      //}
     }
   }
 
@@ -94,52 +112,52 @@ body{
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    margin-top: -400px;
-    padding-top: 150px;
+    //margin-top: -400px;
+    //padding-top: 150px;
     width: 100%;
-    clip-path: polygon(0 -12%, 100% 0, 100% 88%, 0 100%);
+    //clip-path: polygon(0 -12%, 100% 0, 100% 88%, 0 100%);
 
     .sec-vision{
-      padding: 10em 0 10em;
+      //padding: 5rem 0 5rem;
 
-      .vision-title{
-        margin-top: 100px;
-        font-size: 2em;
-      }
-
-      .vision-txt{
-        max-width: 800px;
-        line-height: 1.5em;
-        font-size: 1.2em;
-        padding-top: 1em;
-      }
-
-      ul li{
-        padding-top: 1em;
-      }
+      //.vision-title{
+      //  //margin-top: 100px;
+      //  font-size: 2rem;
+      //}
+      //
+      //.vision-txt{
+      //  max-width: 800px;
+      //  line-height: 1.5rem;
+      //  font-size: 1.2rem;
+      //  padding-top: 1rem;
+      //}
+      //
+      //ul li{
+      //  padding-top: 1rem;
+      //}
     }
 
     .sec-obj{
       background-color: var(--main-color-green);
-      padding: 6em 0 10em;
-      clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+      //padding: 5rem 0 5rem;
+      //clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
 
-      .obj-title{
-        margin-top: 100px;
-        color: var(--main-color-green);
-        font-size: 2em;
-      }
-
-      .obj-txt{
-        max-width: 800px;
-        line-height: 1.5em;
-        font-size: 1.2em;
-        padding-top: 1em;
-      }
-
-      ul li{
-        padding-top: 1em;
-      }
+      //.obj-title{
+      //  //margin-top: 100px;
+      //  color: var(--main-color-green);
+      //  font-size: 2rem;
+      //}
+      //
+      //.obj-txt{
+      //  max-width: 800px;
+      //  line-height: 1.5rem;
+      //  font-size: 1.2rem;
+      //  padding-top: 1rem;
+      //}
+      //
+      //ul li{
+      //  padding-top: 1rem;
+      //}
     }
   }
 }
