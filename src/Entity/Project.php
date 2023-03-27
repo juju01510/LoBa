@@ -51,7 +51,7 @@ class Project
         return $this->icon;
     }
 
-    public function setIcon(string $icon): self
+    public function setIcon(?string $icon): self
     {
         $this->icon = $icon;
 
@@ -75,7 +75,7 @@ class Project
         return $this->media;
     }
 
-    public function setMedia(string $media): self
+    public function setMedia(?string $media): self
     {
         $this->media = $media;
 
