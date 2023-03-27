@@ -3,10 +3,10 @@
 {# {% block title %}Home Lô-Ba{% endblock %} #}
 
 {% block main %}
+
     <div style="background-image: url('{{ asset('uploads/images/' ~ intro.background) }}')" class="sectionOne">
 
-        <section class="sec-intro">.
-
+        <section class="sec-intro">
             {% for message in app.flashes('message') %}
                 <div>
                     {{ message }}
@@ -29,7 +29,8 @@
     </div>
     <style>
         .sec-mission:nth-child(2n+3) {
-            background-image: url('{{ asset('uploads/images/' ~ intro.background) }}');
+            background-image: url('{{ asset('uploads/images/' ~ intro.background2) }}');
         }
     </style>
+
 {% endblock %}

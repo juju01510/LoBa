@@ -42,6 +42,11 @@ class IntroductionCrudController extends AbstractCrudController
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
+        yield ImageField::new('background2')
+            ->setRequired(false)
+            ->setUploadDir('public/uploads/images')
+            ->setBasePath('uploads/images')
+            ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void

@@ -1,4 +1,6 @@
 //variable pour le corps des typos
 html {
   --res: calc(0.01 * 15vmin);
+  scroll-behavior: smooth;
 }
+
