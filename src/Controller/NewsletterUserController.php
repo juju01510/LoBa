@@ -49,7 +49,7 @@ class NewsletterUserController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->render('newsletter_user/index.html.twig', [
+        return $this->render('partials/footer.html.twig', [
             'form' => $form->createView(),
         ]);
     }
