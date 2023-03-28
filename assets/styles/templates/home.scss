@@ -95,6 +95,10 @@ body{
     .sec-mission{
       background-color: var(--main-color-orange);
 
+      .mission-txt {
+        width: 65%;
+      }
+
       &:nth-child(4n+2){
         background: var(--main-color-orange);
 

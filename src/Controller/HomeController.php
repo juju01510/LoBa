@@ -35,7 +35,8 @@ class HomeController extends AbstractController
             $sections = $sectionRepository->findByAvailable();
 
             return $this->render('base.html.twig', [
-                'intro' => $locale === 'default' ? $intro : $introTrans,
+                'intro' => $intro,
+                'introTrans' => $introTrans,
                 'sections' => $locale === 'default' ? $sections : $sectionsTrans,
                 'locale' => $locale
             ]);

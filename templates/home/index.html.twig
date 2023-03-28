@@ -17,9 +17,9 @@
                 {% if locale == 'default' %}
                     {{ intro.content|raw }}
                 {% else %}
-                    {% for i in intro %}
+                    {% for i in introTrans %}
                         {% for intro in i %}
-                            {{ intro['introduction.content'] }}
+                            {{ intro['introduction.content']|raw }}
                         {% endfor %}
                     {% endfor %}
                 {% endif %}
