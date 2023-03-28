@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Commentary;
 use App\Entity\Introduction;
+use App\Entity\Newsletter\Users;
 use App\Entity\Partners;
 use App\Entity\Post;
 use App\Entity\Project;
@@ -73,6 +74,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
         yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', Commentary::class);
+        yield MenuItem::linkToCrud('Subscribers', 'fa fa-envelope', Users::class);
 
         yield MenuItem::section('', '');
 

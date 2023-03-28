@@ -22,7 +22,7 @@ class Post
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $media = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
@@ -80,7 +80,7 @@ class Post
         return $this->media;
     }
 
-    public function setMedia(string $media): self
+    public function setMedia(?string $media): self
     {
         $this->media = $media;
 

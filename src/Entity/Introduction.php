@@ -25,6 +25,12 @@ class Introduction
     #[ORM\OneToMany(mappedBy: 'introduction', targetEntity: Translation::class)]
     private Collection $translations;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $background = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $background2 = null;
+
     public function __construct()
     {
         $this->translations = new ArrayCollection();
@@ -59,6 +65,7 @@ class Introduction
         return $this;
     }
 
+
     /**
      * @return Collection<int, Translation>
      */
@@ -85,6 +92,31 @@ class Introduction
                 $translation->setIntroduction(null);
             }
         }
+
+        return $this;
+    }
+
+
+    public function getBackground(): ?string
+    {
+        return $this->background;
+    }
+
+    public function getBackground2(): ?string
+    {
+        return $this->background2;
+    }
+
+    public function setBackground(?string $background): self
+    {
+        $this->background = $background;
+
+        return $this;
+    }
+
+    public function setBackground2(?string $background2): self
+    {
+        $this->background2 = $background2;
 
         return $this;
     }
