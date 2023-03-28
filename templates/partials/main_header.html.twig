@@ -1,6 +1,6 @@
 <nav id="navbar">
 
-    <img class="Logo_loba" src="{{ asset('build/images/Logo_loba.svg') }}" alt="Logo Lô-Ba">
+    <img class="Logo_loba" src="{{ asset('build/images/Logo_Loba_def.png') }}" alt="Logo Lô-Ba">
 
     <div class="navlinks">
         <ul>
@@ -13,9 +13,8 @@
             {% if is_granted('ROLE_ADMIN')%}
                 <li><a href="{{ path('admin') }}">Admin</a></li>
             {% endif %}
+            <li><a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3)</a></li>
         </ul>
-
-        <a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3) organization</a>
 
         <label>
             <select name="language">

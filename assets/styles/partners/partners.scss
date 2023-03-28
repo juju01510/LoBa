@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  //min-height: 100vh;
   background-image: url("../../images/kigali-5256022_1920.jpg");
   background-position: center;
   background-size: cover;
@@ -10,90 +9,51 @@
   background-repeat: no-repeat;
   justify-content: center;
   align-items: center;
+  padding: 2rem 16vw;
 
-  .cont-full{
-    display: flex;
-    position: relative;
-    width: 1100px;
-    min-height: 800px;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    #part-title{
-      display: block;
-      text-align: center;
-      font-family: var(--bold-font), Helvetica, sans-serif;
-      font-size: 2.5em;
-      color: var(--main-color-orange);
-      background-color: var(--main-color-black);
-      border: 2px solid var(--main-color-orange);
-      max-width: 450px;
-      border-radius: 30px;
-      padding: 0.2em 1em;
-      margin-top: 5em;
-      //margin-bottom: 2em;
+  #part-title{
+    display: block;
+    text-align: center;
+    font-family: var(--bold-font), Helvetica, sans-serif;
+    font-size: 2.5rem;
+    color: var(--main-color-orange);
+    background-color: var(--main-color-black);
+    border: 2px solid var(--main-color-orange);
+    max-width: 450px;
+    border-radius: 30px;
+    padding: 0.2rem 1rem;
+    margin-top: 12rem;
+    margin-bottom: 5rem;
     }
 
-    .part-cont {
-      //min-height: 800px;
-      position: relative;
-      max-width: 1100px;
-      //flex-grow: 1;
-      padding: 100px 0 100px;
+  .part-back{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    border: 2px solid var(--main-color-orange);
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(30px);
+    border-radius: 10px;
+    margin-bottom: 5rem;
 
-      .part-back{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        //grid-template-rows: 1fr 1fr 1fr;
-        grid-gap: 10px;
-        grid-auto-rows: minmax(100px, auto);
-        position: relative;
-        border: 2px solid var(--main-color-orange);
-        max-width: 1100px;
-        min-height: 500px;
-        align-items: center;
-        justify-content: center;
-        //left: 50%;
-        //top: 50%;
-        //transform: translate(-50%, 50%);
-        background-color: rgba(0, 0, 0, .3);
-        backdrop-filter: blur(30px);
-        border-radius: 10px;
-        //transition: .3s;
-        //overflow: hidden;
+    .part-list{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px;
 
-        ul{
-          display: grid;
-          grid: auto-flow / auto 3fr;
+      img{
+        width: 80px;
+        margin-right: 10px;
+      }
 
-          li{
-            grid-column: span 2;
-            display: grid;
-            grid-template-columns: subgrid;
-            list-style-type: none;
-
-            img{
-              width: 120px;
-              height: 100%;
-              float: left;
-              margin-left: 20px;
-              padding-bottom: 30px;
-            }
-
-            p{
-              display: flex;
-              align-items: center;
-              margin-left: 20px;
-
-              a{
-                color: var(--main-color-white);
-                font-size: 1.2em;
-              }
-            }
-          }
-        }
+      a{
+        //text-align: center;
+        color: var(--main-color-white);
+        font-size: 1em;
       }
     }
   }
