@@ -4,9 +4,9 @@
 
     <div class="navlinks">
         <ul>
-            <li><a href="{{ path('app_home') }}">Home</a></li>
-            <li><a href="{{ path('app_projects') }}">Projects</a></li>
-            <li><a href="{{ path('app_blog') }}">News</a></li>
+            <li><a href="{{ path('app_home',  {'lang': app.request.query.get('lang')}) }}">Home</a></li>
+            <li><a href="{{ path('app_projects',  {'lang': app.request.query.get('lang')}) }}">Projects</a></li>
+            <li><a href="{{ path('app_blog',  {'lang': app.request.query.get('lang')}) }}">News</a></li>
             <li><a href="{{ path('app_partners_index') }}">Partners</a></li>
             <li><a href="{{ path('app_message_new') }}">Contact</a></li>
             <li><a href="#">Donate</a></li>
