@@ -9,20 +9,22 @@
             <h1>NEWS</h1>
         </section>
 
-        {% for post in posts %}
-            <section class="sec-blogsList">
-                <div class="img-container">
-                    <img class="blogs-img" src="{{ asset('uploads/images/' ~ post.media) }}" alt="lorem">
-                </div>
-                <a href="{{ path('app_blog_post', { post:post.id}) }}">
-                    <div class="blog-resume">
-                        <h2 id="blogs-title">{{ post.title }}</h2>
-                        <div class="blogs-txt">
-                            {{ post.content|striptags|slice(0,150) }}
-                        </div>
+        <div class="news-grid">
+            {% for post in posts %}
+                <section class="sec-blogsList">
+                    <div class="img-container">
+                        <img class="blogs-img" src="{{ asset('uploads/images/' ~ post.media) }}" alt="lorem">
                     </div>
-                </a>
-            </section>
-        {% endfor %}
+                    <a href="{{ path('app_blog_post', { post:post.id}) }}">
+                        <div class="blog-resume">
+                            <h2 id="blogs-title">{{ post.title }}</h2>
+                            <div class="blogs-txt">
+                                {{ post.content|striptags|slice(0,150) }}
+                            </div>
+                        </div>
+                    </a>
+                </section>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

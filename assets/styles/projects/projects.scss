@@ -6,7 +6,7 @@ section {
 }
 
 .sectionProjOne {
-  background-image: url('../../images/outdoors-3378794_1920.jpg');
+  background-image: url('../../images/annie-spratt-0cgpyigyIkM-unsplash.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -25,15 +25,15 @@ section {
       display: block;
       text-align: center;
       font-family: var(--bold-font), Helvetica, sans-serif;
-      font-size: 2.5em;
+      font-size: 2.5rem;
       color: var(--main-color-orange);
       background-color: var(--main-color-black);
       border: 2px solid var(--main-color-orange);
       max-width: 400px;
       border-radius: 30px;
-      padding: 0.2em 1em;
-      margin-top: 5em;
-      margin-bottom: 2em;
+      padding: 0.2rem 1rem;
+      margin-top: 12rem;
+      margin-bottom: 5rem;
     }
 
     section h2 {
@@ -76,8 +76,8 @@ section {
   .sec-sante {
     background-color: var(--main-color-orange);
     padding: 10em 0 20em;
-    clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
-    margin: -12% 0;
+    //clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+    //margin: -12% 0;
 
     &:nth-child(4n+2) {
       background: var(--main-color-orange);
@@ -133,10 +133,10 @@ section {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  margin-top: -400px;
+  //margin-top: -400px;
   padding-top: 150px;
   width: 100%;
-  clip-path: polygon(0 -12%, 100% 0, 100% 88%, 0 100%);
+  //clip-path: polygon(0 -12%, 100% 0, 100% 88%, 0 100%);
 
   .sec-agri {
     padding: 10em 0 10em;
@@ -168,7 +168,7 @@ section {
   .sec-educ {
     background-color: var(--main-color-green);
     padding: 10em 0 20em;
-    clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+    //clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
 
     #educ-title {
       h2 {

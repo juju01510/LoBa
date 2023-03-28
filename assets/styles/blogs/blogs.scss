@@ -1,20 +1,22 @@
-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10em 0 12em;
-}
+//section{
+//  display: flex;
+//  flex-direction: column;
+//  align-items: center;
+//  padding: 5rem 0 5rem;
+//}
 
 .sectionBlogs{
-  background-image: url('../../images/people-3034120_1920.jpg');
+  //display: flex;
+  //flex-direction: column;
+  width: 100%;
+  background-image: url('../../images/reagan-freeman-4Eu5Qsz7jmI-unsplash.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  margin-bottom: 100px;
-  z-index: 1;
-  width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  justify-content: center;
+  align-items: center;
+  padding: 0 8vw;
 
   .blogs-intro{
     /* max-width: 1100px; */
@@ -25,63 +27,74 @@ section{
       display: block;
       text-align: center;
       font-family: var(--bold-font), Helvetica, sans-serif;
-      font-size: 2.5em;
+      font-size: 2.5rem;
       color: var(--main-color-orange);
       background-color: var(--main-color-black);
       border: 2px solid var(--main-color-orange);
-      max-width: 400px;
+      max-width: 450px;
       border-radius: 30px;
-      padding: 0.2em 1em;
-      margin-top: 5em;
-      margin-bottom: 2em;
+      padding: 0.2rem 1rem;
+      margin-top: 12rem;
+      margin-bottom: 5rem;
     }
   }
 
-  .sec-blogsList{
-    background-color: var(--main-color-orange);
-    padding: 10em 0 5em;
-    clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
+  .news-grid{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    align-items: center;
+    //background-color: var(--main-color-orange);
 
-    .img-container{
-      width: 600px;
-      height: 300px;
-      border-radius: 30px;
-      background-color: var(--main-color-white);
-      margin: 0 1em;
-      overflow: hidden;
+    .sec-blogsList{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      //width: 400px;
 
-      .blogs-img{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        margin-bottom: 2em;
-      }
-    }
+      .img-container{
+        width: 400px;
+        height: 250px;
+        border-radius: 30px;
+        background-color: var(--main-color-white);
+        margin: 0 1em;
+        overflow: hidden;
 
-    .blog-resume{
-      position: relative;
-      top: -100px;
-      background-color: rgba(255, 255, 255, .5);
-      align-content: center;
-      text-align: center;
-      border-radius: 30px;
-      max-width: 500px;
-
-      #blogs-title{
-        display: block;
-        color: var(--main-color-orange);
-        background-color: transparent;
-        margin-top: 1em;
-        max-width: 500px;
+        .blogs-img{
+          //display: flex;
+          //flex-direction: row;
+          //justify-content: space-around;
+          width: 100%;
+          //margin-bottom: 2em;
+        }
       }
 
-      .blogs-txt{
-        max-width: 1000px;
-        line-height: 1.5em;
-        font-size: 0.9em;
-        padding: 0 2em 2em;
-        color: var(--main-color-black);
+      .blog-resume{
+        position: relative;
+        top: -100px;
+        background-color: rgba(0, 0, 0, .7);
+        text-align: center;
+        border-radius: 30px;
+        max-width: 300px;
+
+        #blogs-title{
+          display: block;
+          color: var(--main-color-white);
+          background-color: transparent;
+          font-size: 1.5rem;
+          padding-top: 1rem;
+          max-width: 300px;
+          margin-bottom: 4rem;
+        }
+
+        .blogs-txt{
+          max-width: 300px;
+          line-height: 1.2rem;
+          font-size: 0.7rem;
+          padding: 0 2rem 1rem;
+          color: var(--main-color-white);
+        }
       }
     }
   }
