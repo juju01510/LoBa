@@ -41,6 +41,17 @@ nav{
         color: var(--main-color-orange);
         transition: .3s ease-in-out;
       }
+      .donate{
+        color: var(--main-color-white);
+        background-color: var(--main-color-orange);
+        padding: 10px;
+        border-radius: 5px;
+        transition: .3s ease-in-out;
+      }
+
+      .donate:hover{
+        background-color: var(--main-color-white);
+      }
     }
 
     //.org{
