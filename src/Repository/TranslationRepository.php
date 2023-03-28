@@ -48,8 +48,18 @@ class TranslationRepository extends ServiceEntityRepository
             ->where('t.keyword = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
+    }
+
+    public function findAvailableByKeyword($value, $entity): array
+    {
+        return $this->createQueryBuilder('t')
+            ->join('t.' . $entity, 'e')
+            ->where('t.keyword = :val')
+            ->andWhere('e.available = true')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult();
     }
 
 //    public function findOneBySomeField($value): ?Translation

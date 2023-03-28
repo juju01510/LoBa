@@ -31,6 +31,9 @@ class Translation
     #[ORM\JoinColumn(nullable: true)]
     private ?Section $section = null;
 
+    #[ORM\ManyToOne(inversedBy: 'translations')]
+    private ?Project $project = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +95,18 @@ class Translation
     public function setSection(?Section $section): self
     {
         $this->section = $section;
+
+        return $this;
+    }
+
+    public function getProject(): ?Project
+    {
+        return $this->project;
+    }
+
+    public function setProject(?Project $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

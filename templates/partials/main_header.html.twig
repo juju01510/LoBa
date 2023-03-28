@@ -19,7 +19,7 @@
            href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501
             (c) (3) organization</a>
 
-        <form action="{{ path('app_home') }}" method="get">
+        <form method="get">
             <select id="language_select" name="lang" onchange="this.form.submit()">
                 <option value="en" {{ app.request.locale == 'en' ? 'selected' : '' }}>En</option>
                 <option value="fr" {{ app.request.locale == 'fr' ? 'selected' : '' }}>Fr</option>

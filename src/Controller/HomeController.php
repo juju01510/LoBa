@@ -28,10 +28,8 @@ class HomeController extends AbstractController
                 $request->setLocale($locale);
             }
 
-            $sectionsTrans = $translationService->getTranslation($locale, $request, 'sections', $translationRepository, ['section.title', 'section.content']);
-            $introTrans = $translationService->getTranslation($locale, $request, 'introduction', $translationRepository, ['introduction.content']);
-
-            dump($sectionsTrans);
+            $sectionsTrans = $translationService->getAvailableTranslation('sections', 'section', $translationRepository, ['section.title', 'section.content']);
+            $introTrans = $translationService->getTranslation('introduction', $translationRepository, ['introduction.content']);
 
             $intro = $introductionRepository->findIntro();
             $sections = $sectionRepository->findByAvailable();

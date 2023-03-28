@@ -16,12 +16,23 @@
             </section>
         </section>
 
-        {% for project in projects %}
-            <section class="sec-sante">
-                <a id="sante-title"><h2>{{ project.title }}</h2></a>
-                <div class="content">{{ project.content|raw }}</div>
-            </section>
-        {% endfor %}
+        {% if locale == 'default' %}
+            {% for project in projects %}
+                <section class="sec-sante">
+                    <a id="sante-title"><h2>{{ project.title }}</h2></a>
+                    <div class="content">{{ project.content|raw }}</div>
+                </section>
+            {% endfor %}
+        {% else %}
+            {% for p in ps %}
+            {% for project in p %}
+                <section class="sec-sante">
+                    <a id="sante-title"><h2>{{ project['project.title'] }}</h2></a>
+                    <div class="content">{{ project['project.content']|raw }}</div>
+                </section>
+            {% endfor %}
+            {% endfor %}
+        {% endif %}
     </div>
 
 {% endblock %}
