@@ -1,6 +1,7 @@
 <footer>
     <div class="newsletter">
         <h5>Subscribe to our newsletter</h5>
+
         {{ form_start(newsletterForm, { 'action': path('app_newsletter_index') }) }}
         {{ form_widget(newsletterForm.email) }}
         <button type="submit">Subscribe</button>
