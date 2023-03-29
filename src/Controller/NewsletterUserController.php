@@ -6,7 +6,6 @@ use App\Entity\Newsletter\Users;
 use App\Form\NewsletterUserType;
 use App\Repository\Newsletter\UserRepository;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
-use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,9 +49,7 @@ class NewsletterUserController extends AbstractController
         }
 
         return $this->render('partials/footer.html.twig', [
-            'form' => $form->createView(),
+            'newsletterForm' => $form->createView(),
         ]);
     }
-
-
 }

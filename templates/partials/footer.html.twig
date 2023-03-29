@@ -1,12 +1,10 @@
 <footer>
     <div class="newsletter">
         <h5>Subscribe to our newsletter</h5>
-
-        <form>
-            <input type="email" placeholder="Enter your email">
-            <button type="submit">Subscribe</button>
-{#            {{ render(controller("App\\Controller\\NewsletterUserController::index")) }}#}
-        </form>
+        {{ form_start(newsletterForm, { 'action': path('app_newsletter_index') }) }}
+        {{ form_widget(newsletterForm.email) }}
+        <button type="submit">Subscribe</button>
+        {{ form_end(newsletterForm) }}
 
         <ul class="social-icons">
             <li>
