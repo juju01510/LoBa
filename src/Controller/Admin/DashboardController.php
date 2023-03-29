@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Commentary;
 use App\Entity\Introduction;
+use App\Entity\Logo;
 use App\Entity\Newsletter\Users;
 use App\Entity\Partners;
 use App\Entity\Post;
@@ -77,6 +78,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Subscribers', 'fa fa-envelope', Users::class);
 
         yield MenuItem::section('', '');
+
+        yield MenuItem::subMenu('Navigation', 'fa fa-home')->setSubItems([
+            MenuItem::linkToCrud('Logo', '',Logo::class)->setAction(Crud::PAGE_INDEX),
+        ]);
 
         yield MenuItem::subMenu('Homepage', 'fa fa-home')->setSubItems([
             MenuItem::linkToCrud('Introduction', '',Introduction::class)->setAction(Crud::PAGE_INDEX),
