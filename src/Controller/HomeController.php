@@ -19,14 +19,8 @@ class HomeController extends AbstractController
         public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationService $translationService, TranslationRepository $translationRepository): Response
         {
             $locale = $request->query->get('lang') ?? 'default';
-
-            if ($locale === 'en') {
-                $locale = 'default';
-            }
-
-            if ($locale !== 'default') {
-                $request->setLocale($locale);
-            }
+            $locale == 'en' ? $locale = 'default' : $locale;
+            $locale != 'default' ? $request->setLocale($locale) : null;
 
             $sectionsTrans = $translationService->getAvailableTranslation($sectionRepository, ['section.title', 'section.content']);
             $introTrans = $translationService->getTranslation($introductionRepository , ['introduction.content']);
@@ -35,8 +29,8 @@ class HomeController extends AbstractController
             $sections = $sectionRepository->findByAvailable();
 
             return $this->render('base.html.twig', [
-                'intro' => $locale === 'default' ? $intro : $introTrans,
-                'sections' => $locale === 'default' ? $sections : $sectionsTrans,
+                'intro' => ($locale === 'default' || empty($introTrans)) ? $intro : $introTrans,
+                'sections' => ($locale === 'default' || empty($sectionsTrans)) ? $sections : $sectionsTrans,
                 'locale' => $locale
             ]);
         }

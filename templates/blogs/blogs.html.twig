@@ -15,11 +15,13 @@
                     <div class="img-container">
                         <img class="blogs-img" src="{{ asset('uploads/images/' ~ post.media) }}" alt="lorem">
                     </div>
-                    <a href="{{ path('app_blog_post', { post:post.id}) }}">
+                    <a href="{{ path('app_blog_post', {'post': post.id, 'lang': app.request.locale}) }}">
                         <div class="blog-resume">
-                            <h2 id="blogs-title">{{ post.title }}</h2>
+                            <h2 id="blogs-title">
+                                {{ locale == 'default' ? post.title : ((post.translations|filter(t=>t.keyword == 'post.title')|first).value) }}
+                            </h2>
                             <div class="blogs-txt">
-                                {{ post.content|striptags|slice(0,150) }}
+                                {{ locale == 'default' ? post.content|slice(0, 150)|raw : ((post.translations|filter(t=>t.keyword == 'post.content')|first).value)|raw }}
                             </div>
                         </div>
                     </a>

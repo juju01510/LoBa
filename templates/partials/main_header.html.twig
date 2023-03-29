@@ -7,8 +7,8 @@
             <li><a href="{{ path('app_home',  {'lang': app.request.query.get('lang')}) }}">Home</a></li>
             <li><a href="{{ path('app_projects',  {'lang': app.request.query.get('lang')}) }}">Projects</a></li>
             <li><a href="{{ path('app_blog',  {'lang': app.request.query.get('lang')}) }}">News</a></li>
-            <li><a href="{{ path('app_partners_index') }}">Partners</a></li>
-            <li><a href="{{ path('app_message_new') }}">Contact</a></li>
+            <li><a href="{{ path('app_partners_index', {'lang': app.request.query.get('lang')}) }}">Partners</a></li>
+            <li><a href="{{ path('app_message_new', {'lang': app.request.query.get('lang')}) }}">Contact</a></li>
             <li><a class="donate" href="#">Donate</a></li>
             {% if is_granted('ROLE_ADMIN')%}
                 <li><a href="{{ path('admin') }}">Admin</a></li>

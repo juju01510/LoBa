@@ -23,4 +23,11 @@ class TranslationService
 
         return $translations;
     }
+
+    public function getOneTranslation($id, $repository, array $keys)
+    {
+        $translation = $repository->find($id);
+
+        return $translation;
+    }
 }

@@ -8,7 +8,7 @@
         <div style="background-image: url('{{ asset('uploads/images/' ~ intro.background) }}')" class="sectionOne">
     {% else %}
         {% for i in intro %}
-        <div style="background-image: url('{{ asset('uploads/images/' ~ i.background) }}')" class="sectionOne">
+            <div style="background-image: url('{{ asset('uploads/images/' ~ i.background) }}')" class="sectionOne">
         {% endfor %}
     {% endif %}
 
@@ -44,18 +44,18 @@
     </div>
 
     {% if locale == 'default' %}
-    <style>
-        .sec-mission:nth-child(2n+3) {
-            background-image: url('{{ asset('uploads/images/' ~ intro.background2) }}');
-        }
-    </style>
-    {% else %}
-    {% for i in intro %}
         <style>
             .sec-mission:nth-child(2n+3) {
-                background-image: url('{{ asset('uploads/images/' ~ i.background2) }}');
+                background-image: url('{{ asset('uploads/images/' ~ intro.background2) }}');
             }
         </style>
-    {% endfor %}
+    {% else %}
+        {% for i in intro %}
+            <style>
+                .sec-mission:nth-child(2n+3) {
+                    background-image: url('{{ asset('uploads/images/' ~ i.background2) }}');
+                }
+            </style>
+        {% endfor %}
     {% endif %}
 {% endblock %}

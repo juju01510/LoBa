@@ -17,14 +17,8 @@ class ProjectController extends AbstractController
     public function index(ProjectRepository $projectRepository, Request $request, TranslationRepository $translationRepository, TranslationService $translationService): Response
     {
         $locale = $request->query->get('lang') ?? 'default';
-
-        if ($locale === 'en') {
-            $locale = 'default';
-        }
-
-        if ($locale !== 'default') {
-            $request->setLocale($locale);
-        }
+        $locale == 'en' ? $locale = 'default' : $locale;
+        $locale != 'default' ? $request->setLocale($locale) : null;
 
         $projectsTrans = $translationService->getTranslation($projectRepository, ['project.title', 'project.content']);
 
