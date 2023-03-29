@@ -4,54 +4,58 @@
 
 {% block main %}
 
-    <div style="background-image: url('{{ asset('uploads/images/' ~ intro.background) }}')" class="sectionOne">
+    {% if locale == 'default' %}
+        <div style="background-image: url('{{ asset('uploads/images/' ~ intro.background) }}')" class="sectionOne">
+    {% else %}
+        {% for i in intro %}
+        <div style="background-image: url('{{ asset('uploads/images/' ~ i.background) }}')" class="sectionOne">
+        {% endfor %}
+    {% endif %}
 
-        <section class="sec-intro">
-            {% for message in app.flashes('message') %}
-                <div>
-                    {{ message }}
-                </div>
-            {% endfor %}
+    <section class="sec-intro">
+        {% for message in app.flashes('message') %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
 
-            <div class="intro">
-                {% if locale == 'default' %}
-                    {{ intro.content|raw }}
-                {% else %}
-                    {% for i in introTrans %}
-                        {% for intro in i %}
-                            {{ intro['introduction.content']|raw }}
-                        {% endfor %}
-                    {% endfor %}
-                {% endif %}
+        <div class="intro">
+            {% if locale == 'default' %}
+                {{ intro.content|raw }}
+            {% else %}
+                {% for i in intro %}
+                    {% set content = i.translations | filter(t => t.keyword == 'introduction.content')|first %}
+                    {{ content.value|raw }}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+
+    {% for section in sections %}
+        <section class="sec-mission">
+            <h2 class="mission-title">
+                {{ locale == 'default' ? section.title : ((section.translations|filter(t=>t.keyword == 'section.title')|first).value) }}
+            </h2>
+            <div class="mission-txt">
+                {{ locale == 'default' ? section.content|raw : ((section.translations|filter(t => t.keyword == 'section.content')|first).value|raw) }}
             </div>
         </section>
-
-        {% if locale == 'default' %}
-            {% for section in sections %}
-                <section class="sec-mission">
-                    <h2 class="mission-title">{{ section.title }}</h2>
-                    <div class="mission-txt">
-                        {{ section.content|raw }}
-                    </div>
-                </section>
-            {% endfor %}
-        {% else %}
-            {% for s in sections %}
-                {% for section in s %}
-                    <section class="sec-mission">
-                        <h2 class="mission-title">{{ section['section.title'] }}</h2>
-                        <div class="mission-txt">
-                            {{ section['section.content']|raw }}
-                        </div>
-                    </section>
-                {% endfor %}
-            {% endfor %}
-        {% endif %}
+    {% endfor %}
     </div>
+
+    {% if locale == 'default' %}
     <style>
         .sec-mission:nth-child(2n+3) {
             background-image: url('{{ asset('uploads/images/' ~ intro.background2) }}');
         }
     </style>
-
+    {% else %}
+    {% for i in intro %}
+        <style>
+            .sec-mission:nth-child(2n+3) {
+                background-image: url('{{ asset('uploads/images/' ~ i.background2) }}');
+            }
+        </style>
+    {% endfor %}
+    {% endif %}
 {% endblock %}

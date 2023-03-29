@@ -51,6 +51,18 @@ class SectionRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findAvailableByKey($key): array
+    {
+        return $this->createQueryBuilder('s')
+            ->join('s.translations', 't')
+            ->where('s.available = true')
+            ->andWhere('t.keyword = :key')
+            ->setParameter('key', $key)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    public function findOneBySomeField($value): ?Section
 //    {
 //        return $this->createQueryBuilder('s')

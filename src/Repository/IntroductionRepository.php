@@ -42,14 +42,15 @@ class IntroductionRepository extends ServiceEntityRepository
 //    /**
 //     * @return Introduction[] Returns an array of Introduction objects
 //     */
-    public function findByLanguage($value): array
+    public function findByKey($key): array
     {
-        return $this->createQueryBuilder('i')
-            ->where('i.translations = :val')
-            ->setParameter('val', $value)
+        return $this->createQueryBuilder('s')
+            ->join('s.translations', 't')
+            ->where('t.keyword = :key')
+            ->setParameter('key', $key)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getResult()
+            ;
     }
 
     public function findIntro(): ?Introduction

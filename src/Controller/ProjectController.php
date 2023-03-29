@@ -26,7 +26,7 @@ class ProjectController extends AbstractController
             $request->setLocale($locale);
         }
 
-        $projectsTrans = $translationService->getTranslation('projects', $translationRepository, ['project.title', 'project.content']);
+        $projectsTrans = $translationService->getTranslation($projectRepository, ['project.title', 'project.content']);
 
         $projects = $projectRepository->findAll();
 

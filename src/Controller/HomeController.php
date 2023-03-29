@@ -28,15 +28,14 @@ class HomeController extends AbstractController
                 $request->setLocale($locale);
             }
 
-            $sectionsTrans = $translationService->getAvailableTranslation('sections', 'section', $translationRepository, ['section.title', 'section.content']);
-            $introTrans = $translationService->getTranslation('introduction', $translationRepository, ['introduction.content']);
+            $sectionsTrans = $translationService->getAvailableTranslation($sectionRepository, ['section.title', 'section.content']);
+            $introTrans = $translationService->getTranslation($introductionRepository , ['introduction.content']);
 
             $intro = $introductionRepository->findIntro();
             $sections = $sectionRepository->findByAvailable();
 
             return $this->render('base.html.twig', [
-                'intro' => $intro,
-                'introTrans' => $introTrans,
+                'intro' => $locale === 'default' ? $intro : $introTrans,
                 'sections' => $locale === 'default' ? $sections : $sectionsTrans,
                 'locale' => $locale
             ]);
