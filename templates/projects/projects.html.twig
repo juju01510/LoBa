@@ -6,7 +6,7 @@
 
     <div style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')" class="sectionProjOne">
         <section class="proj-intro">
-            <h1>OUR PROJECTS</h1>
+            <h1>{{ 'projects_page.title'|trans }}</h1>
             <section class="sec-pictos">
                 {% for project in projects %}
                     <a href="#{{ project.id }}">

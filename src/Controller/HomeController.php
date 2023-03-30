@@ -17,19 +17,19 @@ use const http\Client\Curl\POSTREDIR_301;
 
 class HomeController extends AbstractController
 {
-    #[Route('/{lang}', name: 'app_home')]
-    public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationService $translationService, $lang = ''): Response
+    #[Route('/{_locale}', name: 'app_home')]
+    public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationService $translationService, $_locale = ''): Response
     {
-        if ($lang === '') {
+        if ($_locale === '') {
             $locale = 'default';
         } else {
-            $locale = $lang;
+            $locale = $_locale;
         }
 
         if ($request->isMethod('post')) {
             $locale = $request->request->get('lang');
 
-            return $this->redirectToRoute('app_home', ['lang' => $locale]);
+            return $this->redirectToRoute('app_home', ['_locale' => $locale]);
         }
 
         $locale == 'en' ? $locale = 'default' : $locale;

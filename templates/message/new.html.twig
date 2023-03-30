@@ -8,7 +8,7 @@
         <div class="cont-full">
             <div class="contact-container">
                 <div class="form-container">
-                    <h3>Contact us !</h3>
+                    <h3>{{ 'contact.title'|trans }}</h3>
                     {{ form_start(form, {
                         'attr': {'class': 'contact-form'}
                     }) }}
@@ -30,7 +30,7 @@
                     {#                        <input type="text" placeholder="Sujet" required> #}
                     {#                        <textarea name="" id="" cols="30" rows="10" placeholder="Écrivez votre message" #}
                     {#                                  required></textarea> #}
-                    <input type="submit" value="SEND" class="send-button">
+                    <input type="submit" value="{{ 'contact.contact-btn'|trans }}" class="send-button">
                     {#                    </form> #}
                     {{ form_end(form) }}
 

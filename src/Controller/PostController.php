@@ -19,19 +19,19 @@ use Symfony\Component\Validator\Constraints\DateTime;
 
 class PostController extends AbstractController
 {
-    #[Route('/blog/{lang}', name: 'app_blog')]
-    public function index(PostRepository $postRepository, Request $request, TranslationService $translationService, string $lang = ''): Response
+    #[Route('/blog/{_locale}', name: 'app_blog')]
+    public function index(PostRepository $postRepository, Request $request, TranslationService $translationService, $_locale = ''): Response
     {
-        if ($lang === '') {
+        if ($_locale === '') {
             $locale = 'default';
         } else {
-            $locale = $lang;
+            $locale = $_locale;
         }
 
         if ($request->isMethod('post')) {
             $locale = $request->request->get('lang');
 
-            return $this->redirectToRoute('app_blog', ['lang' => $locale]);
+            return $this->redirectToRoute('app_blog', ['_locale' => $locale]);
         }
 
         $locale == 'en' ? $locale = 'default' : $locale;
@@ -47,19 +47,19 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/blog/{post}/{lang}', name: 'app_blog_post')]
-    public function show(Request $request, Post $post, PostRepository $postRepository, TranslationService $translationService, string $lang = ''): Response
+    #[Route('/blog/{post}/{_locale}', name: 'app_blog_post')]
+    public function show(Request $request, Post $post, PostRepository $postRepository, TranslationService $translationService, $_locale = ''): Response
     {
-        if ($lang === '') {
+        if ($_locale === '') {
             $locale = 'default';
         } else {
-            $locale = $lang;
+            $locale = $_locale;
         }
 
         if ($request->isMethod('post')) {
-            $locale = $request->request->get('lang');
+            $locale = $request->request->get('_locale');
 
-            return $this->redirectToRoute('app_blog_post', ['lang' => $locale]);
+            return $this->redirectToRoute('app_blog_post', ['_locale' => $locale]);
         }
 
         $locale == 'en' ? $locale = 'default' : $locale;
