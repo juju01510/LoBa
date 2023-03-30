@@ -13,10 +13,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProjectController extends AbstractController
 {
-    #[Route('/projects', name: 'app_projects')]
-    public function index(ProjectRepository $projectRepository, Request $request, TranslationRepository $translationRepository, TranslationService $translationService): Response
+    #[Route('/projects/{lang}', name: 'app_projects')]
+    public function index(ProjectRepository $projectRepository, Request $request, TranslationRepository $translationRepository, TranslationService $translationService, string $lang = ''): Response
     {
-        $locale = $request->query->get('lang') ?? 'default';
+        if ($lang === '') {
+            $locale = 'default';
+        } else {
+            $locale = $lang;
+        }
+
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
+
+            return $this->redirectToRoute('app_projects', ['lang' => $locale]);
+        }
+
         $locale == 'en' ? $locale = 'default' : $locale;
         $locale != 'default' ? $request->setLocale($locale) : null;
 

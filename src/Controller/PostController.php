@@ -19,10 +19,21 @@ use Symfony\Component\Validator\Constraints\DateTime;
 
 class PostController extends AbstractController
 {
-    #[Route('/blog', name: 'app_blog')]
-    public function index(PostRepository $postRepository, Request $request, TranslationService $translationService): Response
+    #[Route('/blog/{lang}', name: 'app_blog')]
+    public function index(PostRepository $postRepository, Request $request, TranslationService $translationService, string $lang = ''): Response
     {
-        $locale = $request->query->get('lang') ?? 'default';
+        if ($lang === '') {
+            $locale = 'default';
+        } else {
+            $locale = $lang;
+        }
+
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
+
+            return $this->redirectToRoute('app_blog', ['lang' => $locale]);
+        }
+
         $locale == 'en' ? $locale = 'default' : $locale;
         $locale != 'default' ? $request->setLocale($locale) : null;
 
@@ -36,10 +47,21 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/blog/{post}', name: 'app_blog_post')]
-    public function show(Request $request, Post $post, PostRepository $postRepository, TranslationService $translationService): Response
+    #[Route('/blog/{post}/{lang}', name: 'app_blog_post')]
+    public function show(Request $request, Post $post, PostRepository $postRepository, TranslationService $translationService, string $lang = ''): Response
     {
-        $locale = $request->query->get('lang') ?? 'default';
+        if ($lang === '') {
+            $locale = 'default';
+        } else {
+            $locale = $lang;
+        }
+
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
+
+            return $this->redirectToRoute('app_blog_post', ['lang' => $locale]);
+        }
+
         $locale == 'en' ? $locale = 'default' : $locale;
         $locale != 'default' ? $request->setLocale($locale) : null;
 
