@@ -34,18 +34,18 @@ class PostCrudController extends AbstractCrudController
     {
         yield AssociationField::new('category');
         yield TextField::new('title');
-        yield DateField::new('dateCreated')
-            ->setLabel('Created on')
-            ->hideOnForm();
         yield TextEditorField::new('content');
-        yield AssociationField::new('user')
-            ->setLabel('Created by')
-            ->hideOnForm();
         yield ImageField::new('media')
             ->setRequired(false)
             ->setUploadDir('public/uploads/images')
             ->setBasePath('uploads/images')
             ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
+        yield AssociationField::new('user')
+            ->setLabel('Created by')
+            ->hideOnForm();
+        yield DateField::new('dateCreated')
+            ->setLabel('Created on')
+            ->hideOnForm();
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void

@@ -78,35 +78,20 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', Commentary::class);
         yield MenuItem::linkToCrud('Subscribers', 'fa fa-envelope', Users::class);
 
-        yield MenuItem::section('Naviguation', 'fa fa-bars');
-        yield MenuItem::linkToCrud('Logo', ' ', Logo::class);
-
-//        yield MenuItem::subMenu('Navigation', 'fa fa-home')->setSubItems([
-//            MenuItem::linkToCrud('Logo', '',Logo::class)->setAction(Crud::PAGE_INDEX),
-//        ]);
-
-        yield MenuItem::section('Homepage', 'fa fa-home');
-        yield MenuItem::subMenu('Introduction', ' ')->setSubItems([
-            MenuItem::linkToCrud('Main', '',Introduction::class)->setAction(Crud::PAGE_INDEX),
-            MenuItem::linkToCrud('French', '',Translation::class)->setAction(Crud::PAGE_INDEX),
-        ]);
-        yield MenuItem::subMenu('Sections', ' ')->setSubItems([
-            MenuItem::linkToCrud('Main', '',Section::class)->setAction(Crud::PAGE_INDEX),
-            MenuItem::linkToCrud('French', '',Translation::class)->setAction(Crud::PAGE_INDEX),
-        ]);
-
-//        yield MenuItem::subMenu('Homepage', 'fa fa-home')->setSubItems([
-//            MenuItem::linkToCrud('Introduction', '',Introduction::class)->setAction(Crud::PAGE_INDEX),
-//            MenuItem::linkToCrud('Sections', '',Section::class)->setAction(Crud::PAGE_INDEX),
-//        ]);
-
-        yield MenuItem::section('Project page', 'fa fa-list-check');
-        yield MenuItem::subMenu('Projects', ' ')->setSubItems([
-            MenuItem::linkToCrud('Main', '',Project::class)->setAction(Crud::PAGE_INDEX),
-            MenuItem::linkToCrud('French', '',Translation::class)->setAction(Crud::PAGE_INDEX),
-        ]);
-
         yield MenuItem::section('', '');
+
+        yield MenuItem::subMenu('Navigation', 'fa fa-home')->setSubItems([
+            MenuItem::linkToCrud('Logo', '',Logo::class)->setAction(Crud::PAGE_INDEX),
+        ]);
+
+        yield MenuItem::subMenu('Homepage', 'fa fa-home')->setSubItems([
+            MenuItem::linkToCrud('Introduction', '',Introduction::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Sections', '',Section::class)->setAction(Crud::PAGE_INDEX),
+        ]);
+
+        yield MenuItem::subMenu('Project page', 'fa fa-list-check')->setSubItems([
+            MenuItem::linkToCrud('Projects', '',Project::class)->setAction(Crud::PAGE_INDEX),
+        ]);
 
         yield MenuItem::subMenu('News page', 'fa fa-newspaper-o')->setSubItems([
             MenuItem::linkToCrud('News', '',Post::class)->setAction(Crud::PAGE_INDEX),
@@ -116,6 +101,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Partners page', 'fa fa-handshake-o')->setSubItems([
             MenuItem::linkToCrud('Partners', '',Partners::class)->setAction(Crud::PAGE_INDEX),
         ]);
+
+        yield MenuItem::linkToCrud('trans',' ',Translation::class);
     }
 
     public function configureActions(): Actions

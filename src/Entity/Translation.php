@@ -34,6 +34,11 @@ class Translation
     #[ORM\ManyToOne(inversedBy: 'translations')]
     private ?Project $project = null;
 
+    public function __toString(): string
+    {
+        return $this->getValue();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
