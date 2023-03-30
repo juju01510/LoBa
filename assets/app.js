@@ -12,6 +12,7 @@ import './styles/app.scss';
 import './bootstrap';
 
 // Les JS
-// import "./styles/components/navhide";
 import "./styles/components/burger";
 import "./styles/register/register";
+import "./styles/webmasters/webmasters";
+
