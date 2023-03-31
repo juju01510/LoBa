@@ -2,22 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Post;
 use App\Entity\Section;
 use App\Entity\User;
+use App\Form\TranslationEditType;
+use App\Form\TranslationSectionNewType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
-use phpDocumentor\Reflection\Types\Boolean;
 
 class SectionCrudController extends AbstractCrudController
 {
@@ -31,18 +26,28 @@ class SectionCrudController extends AbstractCrudController
         yield TextField::new('title');
         yield TextEditorField::new('content');
         yield CollectionField::new('translations')
-            ->setRequired(true)
+            ->setEntryType(TranslationSectionNewType::class)
+            ->setFormTypeOptions([
+                'by_reference' => false,
+                'delete_empty' => true,
+            ])
             ->onlyWhenCreating()
             ->setLabel('Translation')
-            ->setEntryType(TextEditorType::class)
-            ->setHelp('IMPORTANT! Add ONE translation field for the title and ONE for the content!!!');
-        yield CollectionField::new('translations')
             ->setRequired(true)
-            ->onlyWhenUpdating()
+            ->setHelp('WARNING! Add ONE translation field for the title and ONE for the content!!!');
+
+        yield CollectionField::new('translations')
             ->allowAdd(false)
             ->allowDelete(false)
+            ->setEntryType(TranslationEditType::class)
+            ->setFormTypeOptions([
+                'by_reference' => false,
+                'delete_empty' => true,
+            ])
+            ->onlyWhenUpdating()
             ->setLabel('Translation')
-            ->setEntryType(TextEditorType::class);
+            ->setRequired(true);
+
         yield BooleanField::new('available')
             ->onlyOnForms();
         yield BooleanField::new('available')
@@ -56,7 +61,7 @@ class SectionCrudController extends AbstractCrudController
     public function configureFilters(Filters $filters): Filters
     {
         return parent::configureFilters($filters)
-            ->add('available',);
+            ->add('available');
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void

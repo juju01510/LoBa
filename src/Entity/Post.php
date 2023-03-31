@@ -40,10 +40,14 @@ class Post
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Commentary::class)]
     private Collection $commentaries;
 
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Translation::class, cascade: ['persist', 'remove'])]
+    private Collection $translations;
+
     public function __construct()
     {
         $this->likes = new ArrayCollection();
         $this->commentaries = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +181,36 @@ class Post
             // set the owning side to null (unless already changed)
             if ($commentary->getPost() === $this) {
                 $commentary->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Translation>
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(Translation $translation): self
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations->add($translation);
+            $translation->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTranslation(Translation $translation): self
+    {
+        if ($this->translations->removeElement($translation)) {
+            // set the owning side to null (unless already changed)
+            if ($translation->getPost() === $this) {
+                $translation->setPost(null);
             }
         }
 

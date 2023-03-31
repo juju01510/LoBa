@@ -4,13 +4,14 @@ namespace App\Controller\Admin;
 
 use App\Entity\Project;
 use App\Entity\User;
+use App\Form\TranslationEditType;
+use App\Form\TranslationProjectNewType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -24,18 +25,28 @@ class ProjectCrudController extends AbstractCrudController
         yield TextField::new('title');
         yield TextEditorField::new('content');
         yield CollectionField::new('translations')
-            ->setRequired(true)
+            ->setEntryType(TranslationProjectNewType::class)
+            ->setFormTypeOptions([
+                'by_reference' => false,
+                'delete_empty' => true,
+            ])
             ->onlyWhenCreating()
             ->setLabel('Translation')
-            ->setEntryType(TextEditorType::class)
-            ->setHelp('IMPORTANT! Add ONE translation field for the title and ONE for the content!!!');
-        yield CollectionField::new('translations')
             ->setRequired(true)
-            ->onlyWhenUpdating()
+            ->setHelp('WARNING! Add ONE translation field for the title and ONE for the content!!!');
+
+        yield CollectionField::new('translations')
             ->allowAdd(false)
             ->allowDelete(false)
+            ->setEntryType(TranslationEditType::class)
+            ->setFormTypeOptions([
+                'by_reference' => false,
+                'delete_empty' => true,
+            ])
+            ->onlyWhenUpdating()
             ->setLabel('Translation')
-            ->setEntryType(TextEditorType::class);
+            ->setRequired(true);
+
         yield ImageField::new('icon')
             ->setRequired(false)
             ->setUploadDir('public/uploads/images')

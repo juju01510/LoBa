@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Introduction;
 use App\Entity\User;
 use App\Entity\Translation;
+use App\Form\TranslationEditType;
 use App\Repository\TranslationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
@@ -17,6 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\TextEditorType;
+use phpDocumentor\Reflection\Types\Static_;
 
 class IntroductionCrudController extends AbstractCrudController
 {
@@ -36,13 +38,16 @@ class IntroductionCrudController extends AbstractCrudController
     {
         yield TextEditorField::new('content');
         yield CollectionField::new('translations')
-            ->setEntryIsComplex(true)
-            ->setRequired(true)
             ->onlyWhenUpdating()
             ->allowAdd(false)
             ->allowDelete(false)
+            ->setEntryType(TranslationEditType::class)
+            ->setFormTypeOptions([
+                'by_reference' => false, // permet de ne pas passer la collection par référence
+                'delete_empty' => true, // permet de supprimer les traductions vides lors de l'édition
+            ])
             ->setLabel('Translation')
-            ->setEntryType(TextEditorType::class);
+            ->setRequired(true);
         yield ImageField::new('background')
             ->setRequired(false)
             ->setUploadDir('public/uploads/images')

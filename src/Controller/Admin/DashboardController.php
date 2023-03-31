@@ -74,13 +74,13 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('', '');
 
-        yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('Admins', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', Commentary::class);
-        yield MenuItem::linkToCrud('Subscribers', 'fa fa-envelope', Users::class);
+        yield MenuItem::linkToCrud('Subscribers', 'fa fa-users', Users::class);
 
         yield MenuItem::section('', '');
 
-        yield MenuItem::subMenu('Navigation', 'fa fa-home')->setSubItems([
+        yield MenuItem::subMenu('Navigation', 'fa fa-bars')->setSubItems([
             MenuItem::linkToCrud('Logo', '',Logo::class)->setAction(Crud::PAGE_INDEX),
         ]);
 
@@ -95,14 +95,11 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::subMenu('News page', 'fa fa-newspaper-o')->setSubItems([
             MenuItem::linkToCrud('News', '',Post::class)->setAction(Crud::PAGE_INDEX),
-            MenuItem::linkToCrud('Categories', '',Category::class)->setAction(Crud::PAGE_INDEX),
         ]);
 
         yield MenuItem::subMenu('Partners page', 'fa fa-handshake-o')->setSubItems([
             MenuItem::linkToCrud('Partners', '',Partners::class)->setAction(Crud::PAGE_INDEX),
         ]);
-
-        yield MenuItem::linkToCrud('trans',' ',Translation::class);
     }
 
     public function configureActions(): Actions
