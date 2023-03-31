@@ -48,40 +48,27 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/test', name: 'app_test')]
-    public function test(): Response
+    #[Route('/webmasters/{_locale}', name: 'app_test')]
+    public function test($_locale = 'en', Request $request): Response
     {
-        return $this->render('projects/projects.html.twig');
-    }
+        if ($_locale === '') {
+            $locale = 'default';
+        } else {
+            $locale = $_locale;
+        }
 
-    #[Route('/testt', name: 'app_testt')]
-    public function testt(): Response
-    {
-        return $this->render('blogs/blogs.html.twig');
-    }
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
 
-    #[Route('/testtt', name: 'app_testtt')]
-    public function testtt(): Response
-    {
-        return $this->render('register/register.html.twig');
-    }
+            return $this->redirectToRoute('app_test', ['_locale' => $locale]);
+        }
 
-    #[Route('/testttt', name: 'app_testttt')]
-    public function testttt(): Response
-    {
-        return $this->render('blogs/blog.html.twig');
-    }
+        $locale == 'en' ? $locale = 'default' : $locale;
+        $locale != 'default' ? $request->setLocale($locale) : null;
 
-    #[Route('/testtttt', name: 'app_testtttt')]
-    public function testtttt(): Response
-    {
-        return $this->render('partners/partners.html.twig');
-    }
-
-    #[Route('/testttttt', name: 'app_testttttt')]
-    public function testttttt(): Response
-    {
-        return $this->render('contact/index.html.twig');
+            return $this->render('webmasters/index.html.twig', [
+            'locale' => $locale
+        ]);
     }
 }
 

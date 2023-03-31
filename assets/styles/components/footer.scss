@@ -46,25 +46,6 @@ footer{
         background-color: var(--main-color-white);
       }
     }
-
-    .social-icons{
-      display: flex;
-
-      li{
-        list-style: none;
-
-        a{
-          text-decoration: none;
-          color: var(--main-color-darkgrey);
-          font-size: 2rem;
-          transition: .3s ease-in-out;
-        }
-
-        a:hover{
-          color: var(--main-color-white);
-        }
-      }
-    }
   }
 
   hr{
@@ -89,6 +70,37 @@ footer{
     p{
       font-size: 0.8rem;
       padding-top: 0.5rem;
+    }
+
+    .social-icons{
+      display: flex;
+      justify-content: center;
+      padding-top: 2rem;
+
+      li{
+        display: flex;
+        list-style: none;
+        justify-content: center;
+
+        a{
+          text-decoration: none;
+          color: var(--main-color-darkgrey);
+          font-size: 1.2rem;
+          transition: .3s ease-in-out;
+          padding-right: 2rem;
+          //justify-content: center;
+
+          i{
+            font-size: 2rem;
+            padding: .5rem;
+            //justify-content: center;
+          }
+        }
+
+        a:hover{
+          color: var(--main-color-white);
+        }
+      }
     }
   }
 
@@ -118,7 +130,7 @@ footer{
       h6{
         i{
           display: block;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
           text-align: center;
           //align-items: center;
           color: var(--main-color-darkgrey);

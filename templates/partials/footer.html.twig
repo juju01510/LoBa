@@ -6,14 +6,6 @@
         {{ form_widget(newsletterForm.email, {'attr' : {'placeholder' : 'footer.newsletter.placeholder'|trans}}) }}
         <button type="submit">{{ 'footer.newsletter.subscribe-btn'|trans }}</button>
         {{ form_end(newsletterForm) }}
-
-        <ul class="social-icons">
-            <li>
-                <a target="_blank" href="https://www.facebook.com/lobainternationalngo">
-                    <i class="fab fa-facebook"></i>
-                </a>
-            </li>
-        </ul>
     </div>
 
     <hr>
@@ -22,6 +14,18 @@
         <h5>{{ 'footer.about.title'|trans }}</h5>
         <p>{{ 'footer.about.content_1'|trans }}</p>
         <p>{{ 'footer.about.content_2'|trans }}</p>
+
+        <ul class="social-icons">
+            <li>
+                <a href="{{ path('app_members') }}"><i class="fa-solid fa-users"></i>Members</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.facebook.com/lobainternationalngo">
+                    <i class="fab fa-facebook"></i>
+                    Facebook
+                </a>
+            </li>
+        </ul>
     </div>
 
     <hr>
@@ -46,14 +50,15 @@
         <div class="foo-rens">
             <h6><i class="fas fa-envelope"></i></h6>
             <ul>
-                <li><a target="_blank" href="mailto:onglobainternational@gmail.com">onglobainternational@gmail.com</a></li>
+                <li><a target="_blank" href="mailto:onglobainternational@gmail.com">onglobainternational@gmail.com</a>
+                </li>
             </ul>
         </div>
 
         <div class="foo-rens">
             <h6><i class="fa-solid fa-desktop"></i></h6>
             <ul>
-                <li><a href="#">Webmasters</a></li>
+                <li><a href="{{ path('app_test') }}">Webmasters</a></li>
             </ul>
         </div>
     </div>

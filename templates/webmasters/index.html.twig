@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Webmasters{% endblock %}
+
+{% block main %}
+    <div class="wb-page">
+    <div class="wb-container">
+        <a href="https://www.ryww.fr/" target="_blank">
+        <div class="wb-card">
+            <div class="wb-content-card">
+                <img src="{{ asset('build/images/card_lo.jpg') }}">
+            </div>
+
+            <div class="wb-glow"></div>
+        </div>
+        </a>
+
+        <a href="mailto:davydesign@outlook.fr">
+            <div class="wb-card">
+                <div class="wb-content-card">
+                    <img src="{{ asset('build/images/card_davy.jpg') }}">
+                </div>
+
+                <div class="wb-glow"></div>
+            </div>
+        </a>
+
+        <a href="mailto:julien.asinari@protonmail.com">
+            <div class="wb-card">
+                <div class="wb-content-card">
+                    <img src="{{ asset('build/images/card_ju.jpg') }}">
+                </div>
+
+                <div class="wb-glow"></div>
+            </div>
+        </a>
+    </div>
+
+    </div>
+
+{% endblock %}

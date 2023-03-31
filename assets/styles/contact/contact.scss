@@ -6,6 +6,7 @@
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  padding: 15rem 0 15rem;
 
   .contact-container{
     display: grid;
@@ -36,8 +37,8 @@
           width: 100%;
           border: none;
           outline: none;
-          background-color: var(--main-color-black);
-          color: var(--main-color-white);
+          background-color: var(--main-color-white);
+          color: var(--main-color-black);
           padding: 10px;
           font-family: var(--reg-font);
           font-size: 0.9rem;
@@ -49,8 +50,8 @@
           width: 100%;
           border: none;
           outline: none;
-          background-color: var(--main-color-black);
-          color: var(--main-color-white);
+          background-color: var(--main-color-white);
+          color: var(--main-color-black);
           padding: 10px;
           font-size: 0.9rem;
           border-radius: 0.4rem;
@@ -66,16 +67,16 @@
         .send-button{
           border: none;
           outline: none;
-          background-color: var(--main-color-white);
-          color: var(--main-color-black);
+          background-color: var(--main-color-darkgrey);
+          color: var(--main-color-white);
           font-size: 1rem;
           font-weight: 500;
           cursor: pointer;
         }
 
         .send-button:hover{
-          background-color: var(--main-color-black);
-          color: var(--main-color-white);
+          background-color: var(--main-color-lightgrey);
+          color: var(--main-color-darkgrey);
           transition: .3s linear;
         }
       }
@@ -96,8 +97,12 @@
       width: 90%;
     }
   }
+}
 
-  @media screen and (min-width: 300px) and (max-width: 700px){
+@media screen and (min-width: 300px) and (max-width: 700px){
+  .contact-section{
+    padding: 10rem 0 10rem;
+
     .contact-container{
       grid-template-columns: 1fr;
       gap: 1rem;

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Members Lô-Ba{% endblock %}
+
+{% block main %}
+
+    <div id="container-members">
+        <h1 id="mem-title">OUR MEMBERS</h1>
+
+        <div class="mem-back">
+            {% for member in members %}
+                <div class="mem-list">
+                    <img src="{{ asset('build/images/Picto_member.png') }}" alt="photo membre" style="float:left">
+                    <p class="status">{{ member.position }}</p>
+                    <p class="identity">{{ member.firstname }} {{ member.lastname }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
