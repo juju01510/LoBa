@@ -9,10 +9,8 @@
 import './styles/app.scss';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
 
 // Les JS
 import "./styles/components/burger";
-import "./styles/register/register";
 import "./styles/webmasters/webmasters";
-

@@ -3,16 +3,16 @@
 
     <div class="navlinks">
         <ul>
-            <li><a href="{{ path('app_home',  {'lang': app.request.query.get('lang')}) }}">Home</a></li>
-            <li><a href="{{ path('app_projects',  {'lang': app.request.query.get('lang')}) }}">Projects</a></li>
-            <li><a href="{{ path('app_blog',  {'lang': app.request.query.get('lang')}) }}">News</a></li>
-            <li><a href="{{ path('app_partners_index') }}">Partners</a></li>
-            <li><a href="{{ path('app_message_new') }}">Contact</a></li>
+            <li><a data-replace="Home" href="{{ path('app_home',  {'lang': app.request.query.get('lang')}) }}"><span>Home</span></a></li>
+            <li><a data-replace="Projects" href="{{ path('app_projects',  {'lang': app.request.query.get('lang')}) }}"><span>Projects</span></a></li>
+            <li><a data-replace="News" href="{{ path('app_blog',  {'lang': app.request.query.get('lang')}) }}"><span>News</span></a></li>
+            <li><a data-replace="Partners" href="{{ path('app_partners_index') }}"><span>Partners</span></a></li>
+            <li><a data-replace="Contact" href="{{ path('app_message_new') }}"><span>Contact</span></a></li>
+            <li><a data-replace="501(c)(3)" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations"><span>501(c)(3)</span></a></li>
             <li><a class="donate" href="#">Donate</a></li>
             {% if is_granted('ROLE_ADMIN')%}
                 <li><a href="{{ path('admin') }}">Admin</a></li>
             {% endif %}
-            <li><a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3)</a></li>
         </ul>
 
         <form method="get">
@@ -31,35 +31,35 @@
                         d="M72 82.286h28.75"
                         fill="#009100"
                         fill-rule="evenodd"
-                        stroke="var(--main-color-orange)"
+                        stroke="var(--main-color-darkgrey)"
                 />
                 <path
                         d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
                         fill="none"
-                        stroke="var(--main-color-orange)"
+                        stroke="var(--main-color-darkgrey)"
                 />
                 <path
                         d="M72 125.143h28.75"
                         fill="#009100"
                         fill-rule="evenodd"
-                        stroke="var(--main-color-orange)"
+                        stroke="var(--main-color-darkgrey)"
                 />
                 <path
                         d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
                         fill="none"
-                        stroke="var(--main-color-orange)"
+                        stroke="var(--main-color-darkgrey)"
                 />
                 <path
                         d="M100.75 82.286h28.75"
                         fill="#009100"
                         fill-rule="evenodd"
-                        stroke="var(--main-color-orange)"
+                        stroke="var(--main-color-darkgrey)"
                 />
                 <path
                         d="M100.75 125.143h28.75"
                         fill="#009100"
                         fill-rule="evenodd"
-                        stroke="var(--main-color-orange)"
+                        stroke="var(--main-color-darkgrey)"
                 />
             </g>
         </svg>
