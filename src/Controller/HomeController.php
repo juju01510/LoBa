@@ -9,38 +9,44 @@ use App\Service\TranslationService;
 use DateTime;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use const http\Client\Curl\POSTREDIR_301;
 
 class HomeController extends AbstractController
 {
-        #[Route('/', name: 'app_home')]
-        public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationService $translationService, TranslationRepository $translationRepository): Response
-        {
-            $locale = $request->query->get('lang') ?? 'default';
-
-            if ($locale === 'en') {
-                $locale = 'default';
-            }
-
-            if ($locale !== 'default') {
-                $request->setLocale($locale);
-            }
-
-            $sectionsTrans = $translationService->getAvailableTranslation('sections', 'section', $translationRepository, ['section.title', 'section.content']);
-            $introTrans = $translationService->getTranslation('introduction', $translationRepository, ['introduction.content']);
-
-            $intro = $introductionRepository->findIntro();
-            $sections = $sectionRepository->findByAvailable();
-
-            return $this->render('base.html.twig', [
-                'intro' => $intro,
-                'introTrans' => $introTrans,
-                'sections' => $locale === 'default' ? $sections : $sectionsTrans,
-                'locale' => $locale
-            ]);
+    #[Route('/{_locale}', name: 'app_home')]
+    public function index(IntroductionRepository $introductionRepository, SectionRepository $sectionRepository, Request $request, TranslationService $translationService, $_locale = ''): Response
+    {
+        if ($_locale === '') {
+            $locale = 'default';
+        } else {
+            $locale = $_locale;
         }
+
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
+
+            return $this->redirectToRoute('app_home', ['_locale' => $locale]);
+        }
+
+        $locale == 'en' ? $locale = 'default' : $locale;
+        $locale != 'default' ? $request->setLocale($locale) : null;
+
+        $sectionsTrans = $translationService->getAvailableTranslation($sectionRepository, ['section.title', 'section.content']);
+        $introTrans = $translationService->getTranslation($introductionRepository, ['introduction.content']);
+
+        $intro = $introductionRepository->findIntro();
+        $sections = $sectionRepository->findByAvailable();
+
+        return $this->render('base.html.twig', [
+            'intro' => ($locale === 'default' || empty($introTrans)) ? $intro : $introTrans,
+            'sections' => ($locale === 'default' || empty($sectionsTrans)) ? $sections : $sectionsTrans,
+            'locale' => $locale
+        ]);
+    }
 
     #[Route('/test', name: 'app_test')]
     public function test(): Response

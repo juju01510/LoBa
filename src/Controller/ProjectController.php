@@ -13,20 +13,25 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProjectController extends AbstractController
 {
-    #[Route('/projects', name: 'app_projects')]
-    public function index(ProjectRepository $projectRepository, Request $request, TranslationRepository $translationRepository, TranslationService $translationService): Response
+    #[Route('/projects/{_locale}', name: 'app_projects')]
+    public function index(ProjectRepository $projectRepository, Request $request, TranslationRepository $translationRepository, TranslationService $translationService, $_locale = ''): Response
     {
-        $locale = $request->query->get('lang') ?? 'default';
-
-        if ($locale === 'en') {
+        if ($_locale === '') {
             $locale = 'default';
+        } else {
+            $locale = $_locale;
         }
 
-        if ($locale !== 'default') {
-            $request->setLocale($locale);
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
+
+            return $this->redirectToRoute('app_projects', ['_locale' => $locale]);
         }
 
-        $projectsTrans = $translationService->getTranslation('projects', $translationRepository, ['project.title', 'project.content']);
+        $locale == 'en' ? $locale = 'default' : $locale;
+        $locale != 'default' ? $request->setLocale($locale) : null;
+
+        $projectsTrans = $translationService->getTranslation($projectRepository, ['project.title', 'project.content']);
 
         $projects = $projectRepository->findAll();
 

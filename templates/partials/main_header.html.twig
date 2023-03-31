@@ -3,19 +3,23 @@
 
     <div class="navlinks">
         <ul>
-            <li><a href="{{ path('app_home',  {'lang': app.request.query.get('lang')}) }}">Home</a></li>
-            <li><a href="{{ path('app_projects',  {'lang': app.request.query.get('lang')}) }}">Projects</a></li>
-            <li><a href="{{ path('app_blog',  {'lang': app.request.query.get('lang')}) }}">News</a></li>
-            <li><a href="{{ path('app_partners_index') }}">Partners</a></li>
-            <li><a href="{{ path('app_message_new') }}">Contact</a></li>
-            <li><a class="donate" href="#">Donate</a></li>
-            {% if is_granted('ROLE_ADMIN')%}
+            <li>
+                <a href="{{ path('app_home', {_locale: app.request.locale}) }}">{{ 'home'|trans }}</a>
+            </li>
+            <li><a href="{{ path('app_projects',  {_locale: app.request.locale}) }}">{{ 'projects'|trans }}</a></li>
+            <li><a href="{{ path('app_blog',  {_locale: app.request.locale}) }}">{{ 'news'|trans }}</a></li>
+            <li><a href="{{ path('app_partners_index', {_locale: app.request.locale}) }}">{{ 'partners'|trans }}</a></li>
+            <li><a href="{{ path('app_message_new', {_locale: app.request.locale}) }}">Contact</a></li>
+            <li><a class="donate" href="#">{{ 'donate'|trans }}</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('admin') }}">Admin</a></li>
             {% endif %}
-            <li><a class="org" target="_blank" href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501 (c) (3)</a></li>
+            <li><a class="org" target="_blank"
+                   href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501
+                    (c) (3)</a></li>
         </ul>
 
-        <form method="get">
+        <form method="post">
             <select id="language_select" name="lang" onchange="this.form.submit()">
                 <option value="en" {{ app.request.locale == 'en' ? 'selected' : '' }}>En</option>
                 <option value="fr" {{ app.request.locale == 'fr' ? 'selected' : '' }}>Fr</option>

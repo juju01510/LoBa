@@ -12,9 +12,21 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MessageController extends AbstractController
 {
-    #[Route('/message/new', name: 'app_message_new')]
-    public function new(Request $request, CommentaryRepository $commentaryRepository): Response
+    #[Route('/message/new/{_locale}', name: 'app_message_new')]
+    public function new(Request $request, CommentaryRepository $commentaryRepository, $_locale = ''): Response
     {
+        if ($_locale === '') {
+            $locale = 'default';
+        } else {
+            $locale = $_locale;
+        }
+
+        if ($request->isMethod('post')) {
+            $locale = $request->request->get('lang');
+
+            return $this->redirectToRoute('app_message_new', ['_locale' => $locale]);
+        }
+
         $message = new Commentary();
 
         $dateTime = new \DateTime;

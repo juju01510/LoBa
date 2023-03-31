@@ -1,0 +1,30 @@
+home: Accueil
+projects: Projets
+news: Actualités
+partners: Partenaires
+donate: Donation
+
+projects_page:
+  title: NOS PROJETS
+
+news_page:
+  title: Actualités
+
+contact:
+  title: Contactez-nous !
+  contact-btn: ENVOYER
+  placeholder:
+    author: Auteur
+    email: Email
+    topic: Sujet
+    message: Votre message
+
+footer:
+  newsletter:
+    title: s'inscrire à notre newsletter
+    subscribe-btn: s'inscrire
+    placeholder: Entrer votre email
+  about:
+    title: A PROPOS DE LÔ-BA INTERNATIONAL
+    content_1: Lô-Ba International is a non-governmental organization founded in 2018 supporting the resilience of women and young girls vulnerable to climate change through agriculture, health, and education.
+    content_2: poLô-Ba International Incorporation is an American nonprofit, tax-exempt charitable organization (tax ID number 82-3486347) under Section 501(c)(3) of the Internal Revenue Code. Donations are tax-deductible as allowed by law.

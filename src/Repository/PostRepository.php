@@ -48,17 +48,16 @@ class PostRepository extends ServiceEntityRepository
             ->where('p.category = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
-//    public function findOneBySomeField($value): ?Post
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findByKey($key): array
+    {
+        return $this->createQueryBuilder('s')
+            ->join('s.translations', 't')
+            ->where('t.keyword = :key')
+            ->setParameter('key', $key)
+            ->getQuery()
+            ->getResult();
+    }
 }

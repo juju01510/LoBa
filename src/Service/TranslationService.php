@@ -6,37 +6,28 @@ use App\Repository\TranslationRepository;
 
 class TranslationService
 {
-    public function getTranslation(string $entity, TranslationRepository $translationRepository, array $keys)
+    public function getTranslation($repository, array $keys)
     {
-        $translations = [];
-        $i = 0;
-
         foreach ($keys as $key) {
-            $allTranslations = $translationRepository->findByKeyword($key);
-
-            foreach ($allTranslations as $i => $translation) {
-                $i++;
-                $translations[$entity][$i][$key] = $translation->getValue();
-            }
+            $translations = $repository->findByKey($key);
         }
 
         return $translations;
     }
 
-    public function getAvailableTranslation(string $entities, string $entity, TranslationRepository $translationRepository, array $keys)
+    public function getAvailableTranslation($repository, array $keys)
     {
-        $translations = [];
-        $i = 0;
-
         foreach ($keys as $key) {
-            $allTranslations = $translationRepository->findAvailableByKeyword($key, $entity);
-
-            foreach ($allTranslations as $i => $translation) {
-                $i++;
-                $translations[$entities][$i][$key] = $translation->getValue();
-            }
+            $translations = $repository->findAvailableByKey($key);
         }
 
         return $translations;
+    }
+
+    public function getOneTranslation($id, $repository, array $keys)
+    {
+        $translation = $repository->find($id);
+
+        return $translation;
     }
 }

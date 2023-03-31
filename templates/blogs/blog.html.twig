@@ -12,9 +12,11 @@
 
         <section class="sec-blogList">
             <div class="blog-res">
-                <h1 id="blog-title">{{ post.title }}</h1>
+                <h1 id="blog-title">
+                    {{ locale == 'default' ? post.title : ((post.translations | filter(t => t.keyword == 'post.title') | first).value) }}
+                </h1>
                 <div class="blog-ac">
-                    {{ post.content|raw }}
+                    {{ locale == 'default' ? post.content | raw : ((post.translations | filter(t => t.keyword == 'post.content') | first).value) | raw }}
                 </div>
             </div>
 {#            <div class="blog-dev">#}

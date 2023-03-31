@@ -6,7 +6,7 @@
 
     <div style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')" class="sectionProjOne">
         <section class="proj-intro">
-            <h1>OUR PROJECTS</h1>
+            <h1>{{ 'projects_page.title'|trans }}</h1>
             <section class="sec-pictos">
                 {% for project in projects %}
                     <a href="#{{ project.id }}">
@@ -22,21 +22,23 @@
                     <a id="sante-title"><h2>{{ project.title }}</h2></a>
                     <div class="content">
                         {{ project.content|raw }}
-                        <img style="width: 100%; margin-top: 1rem" src="{{ asset('uploads/images/' ~ project.media) }}" alt="">
+                        <img style="width: 100%; margin-top: 1rem" src="{{ asset('uploads/images/' ~ project.media) }}"
+                             alt="">
                     </div>
                 </section>
             {% endfor %}
         {% else %}
             {% for p in ps %}
-            {% for project in p %}
+                {% set title = p.translations | filter(t=>t.keyword == 'project.title')|first %}
+                {% set content = p.translations | filter(t=>t.keyword == 'project.content')|first %}
                 <section class="sec-sante">
-                    <a id="sante-title"><h2>{{ project['project.title'] }}</h2></a>
+                    <a id="sante-title"><h2>{{ title.value }}</h2></a>
                     <div class="content">
-                        {{ project['project.content']|raw }}
-{#                        <img style="width: 100%; margin-top: 1rem" src="{{ asset('uploads/images/' ~ project.media) }}" alt="">#}
+                        {{ content.value|raw }}
+                        <img style="width: 100%; margin-top: 1rem" src="{{ asset('uploads/images/' ~ p.media) }}"
+                             alt="">
                     </div>
                 </section>
-            {% endfor %}
             {% endfor %}
         {% endif %}
     </div>
