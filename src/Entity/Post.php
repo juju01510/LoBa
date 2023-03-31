@@ -40,7 +40,7 @@ class Post
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Commentary::class)]
     private Collection $commentaries;
 
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Translation::class)]
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Translation::class, cascade: ['persist', 'remove'])]
     private Collection $translations;
 
     public function __construct()

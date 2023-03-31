@@ -31,7 +31,7 @@ class Project
     #[ORM\ManyToOne(inversedBy: 'projects')]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'project', targetEntity: Translation::class)]
+    #[ORM\OneToMany(mappedBy: 'project', targetEntity: Translation::class, cascade: ['persist', 'remove'])]
     private Collection $translations;
 
     #[ORM\Column]

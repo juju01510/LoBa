@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Controller\Admin;
+
+use App\Entity\Logo;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+
+class LogoCrudController extends AbstractCrudController
+{
+    public static function getEntityFqcn(): string
+    {
+        return Logo::class;
+    }
+
+    public function configureFields(string $pageName): iterable
+    {
+        yield TextField::new('name');
+        yield ImageField::new('logo')
+            ->setRequired(false)
+            ->setUploadDir('public/uploads/images')
+            ->setBasePath('uploads/images')
+            ->setUploadedFileNamePattern('[slug]-[timestamp].[extension]');
+        yield BooleanField::new('available')
+            ->onlyOnForms();
+        yield BooleanField::new('available')
+            ->renderAsSwitch(false)
+            ->onlyOnIndex();
+    }
+}

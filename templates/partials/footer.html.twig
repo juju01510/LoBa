@@ -2,11 +2,10 @@
     <div class="newsletter">
         <h5>{{ 'footer.newsletter.title'|trans }}</h5>
 
-        <form>
-            <input type="email" placeholder="{{ 'footer.newsletter.placeholder'|trans }}">
-            <button type="submit">{{ 'footer.newsletter.subscribe-btn'|trans }}</button>
-{#            {{ render(controller("App\\Controller\\NewsletterUserController::index")) }}#}
-        </form>
+        {{ form_start(newsletterForm, { 'action': path('app_newsletter_index') }) }}
+        {{ form_widget(newsletterForm.email, {'attr' : {'placeholder' : 'footer.newsletter.placeholder'|trans}}) }}
+        <button type="submit">{{ 'footer.newsletter.subscribe-btn'|trans }}</button>
+        {{ form_end(newsletterForm) }}
 
         <ul class="social-icons">
             <li>

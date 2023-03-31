@@ -28,7 +28,7 @@ class Section
     #[ORM\ManyToOne(inversedBy: 'sections')]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'section', targetEntity: Translation::class)]
+    #[ORM\OneToMany(mappedBy: 'section', targetEntity: Translation::class, cascade: ['persist', 'remove'])]
     private Collection $translations;
 
     public function __construct()

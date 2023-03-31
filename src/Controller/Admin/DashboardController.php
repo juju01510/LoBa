@@ -5,11 +5,13 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Commentary;
 use App\Entity\Introduction;
+use App\Entity\Logo;
 use App\Entity\Newsletter\Users;
 use App\Entity\Partners;
 use App\Entity\Post;
 use App\Entity\Project;
 use App\Entity\Section;
+use App\Entity\Translation;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -72,11 +74,15 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('', '');
 
-        yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('Admins', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', Commentary::class);
-        yield MenuItem::linkToCrud('Subscribers', 'fa fa-envelope', Users::class);
+        yield MenuItem::linkToCrud('Subscribers', 'fa fa-users', Users::class);
 
         yield MenuItem::section('', '');
+
+        yield MenuItem::subMenu('Navigation', 'fa fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Logo', '',Logo::class)->setAction(Crud::PAGE_INDEX),
+        ]);
 
         yield MenuItem::subMenu('Homepage', 'fa fa-home')->setSubItems([
             MenuItem::linkToCrud('Introduction', '',Introduction::class)->setAction(Crud::PAGE_INDEX),
@@ -89,7 +95,6 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::subMenu('News page', 'fa fa-newspaper-o')->setSubItems([
             MenuItem::linkToCrud('News', '',Post::class)->setAction(Crud::PAGE_INDEX),
-            MenuItem::linkToCrud('Categories', '',Category::class)->setAction(Crud::PAGE_INDEX),
         ]);
 
         yield MenuItem::subMenu('Partners page', 'fa fa-handshake-o')->setSubItems([
