@@ -33,7 +33,7 @@ class ProjectController extends AbstractController
 
         $projectsTrans = $translationService->getTranslation($projectRepository, ['project.title', 'project.content']);
 
-        $projects = $projectRepository->findAll();
+        $projects = $projectRepository->findAvailable();
 
         return $this->render('projects/projects.html.twig', [
             'projects' => $projects,

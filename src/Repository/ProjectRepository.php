@@ -39,6 +39,7 @@ class ProjectRepository extends ServiceEntityRepository
         }
     }
 
+
     public function findByKey($key): array
     {
         return $this->createQueryBuilder('s')
@@ -47,5 +48,14 @@ class ProjectRepository extends ServiceEntityRepository
             ->setParameter('key', $key)
             ->getQuery()
             ->getResult();
+    }
+
+    public function findAvailable(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.available = true')
+            ->getQuery()
+            ->getResult()
+        ;
     }
 }
