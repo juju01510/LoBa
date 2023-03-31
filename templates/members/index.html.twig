@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Members Lô-Ba{% endblock %}
+
+{% block main %}
+
+    <div id="container-members">
+        <h1 id="mem-title">OUR MEMBERS</h1>
+
+        <div class="mem-back">
+            {% for i in 0..30 %}
+                <div class="mem-list">
+{#                    <img src="{{ asset('uploads/images/' ~ #) }}" alt="logo {{ partner.name }}" style="float:left">#}
+{#                    <p>{{ partner.name }}</p>#}
+{#                    <p>{{ partner.name }}</p>#}
+
+                    <img src="{{ asset('build/images/Picto_member.png') }}" alt="photo membre" style="float:left">
+                    <p class="status">Dir. des relations humaines</p>
+                    <p class="identity">Jean-Claude Tergal</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
