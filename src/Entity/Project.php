@@ -34,6 +34,9 @@ class Project
     #[ORM\OneToMany(mappedBy: 'project', targetEntity: Translation::class)]
     private Collection $translations;
 
+    #[ORM\Column]
+    private ?bool $available = null;
+
     public function __construct()
     {
         $this->translations = new ArrayCollection();
@@ -130,6 +133,18 @@ class Project
                 $translation->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isAvailable(): ?bool
+    {
+        return $this->available;
+    }
+
+    public function setAvailable(bool $available): self
+    {
+        $this->available = $available;
 
         return $this;
     }
