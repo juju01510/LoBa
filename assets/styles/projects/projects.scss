@@ -79,6 +79,10 @@ section {
     //clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%);
     //margin: -12% 0;
 
+    h2 {
+      text-transform: uppercase;
+    }
+
     &:nth-child(4n+2) {
       background: var(--main-color-orange);
     }

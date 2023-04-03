@@ -93,6 +93,10 @@ body{
     .sec-mission{
       background-color: var(--main-color-orange);
 
+      h2 {
+        text-transform: uppercase;
+      }
+
       .mission-txt {
         width: 65%;
       }

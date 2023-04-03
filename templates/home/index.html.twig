@@ -35,7 +35,7 @@
     {% for section in sections %}
         <section class="sec-mission">
             <h2 class="mission-title">
-                {{ locale == 'default' ? section.title : ((section.translations|filter(t=>t.keyword == 'section.title')|first).value) }}
+                {{ locale == 'default' ? section.title : ((section.translations|filter(t=>t.keyword == 'section.title')|first).value|raw) }}
             </h2>
             <div class="mission-txt">
                 {{ locale == 'default' ? section.content|raw : ((section.translations|filter(t => t.keyword == 'section.content')|first).value|raw) }}

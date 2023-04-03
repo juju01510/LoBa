@@ -32,7 +32,7 @@
                 {% set title = p.translations | filter(t=>t.keyword == 'project.title')|first %}
                 {% set content = p.translations | filter(t=>t.keyword == 'project.content')|first %}
                 <section class="sec-sante">
-                    <a id="sante-title"><h2>{{ title.value }}</h2></a>
+                    <a id="sante-title"><h2>{{ title.value|raw }}</h2></a>
                     <div class="content">
                         {{ content.value|raw }}
                         <img style="width: 100%; margin-top: 1rem" src="{{ asset('uploads/images/' ~ p.media) }}"

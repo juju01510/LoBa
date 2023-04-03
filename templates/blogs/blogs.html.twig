@@ -18,7 +18,7 @@
                     <a href="{{ path('app_blog_post', {'post': post.id, '_locale': app.request.locale}) }}">
                         <div class="blog-resume">
                             <h2 id="blogs-title">
-                                {{ locale == 'default' ? post.title : ((post.translations|filter(t=>t.keyword == 'post.title')|first).value) }}
+                                {{ locale == 'default' ? post.title : ((post.translations|filter(t=>t.keyword == 'post.title')|first).value|raw) }}
                             </h2>
                             <div class="blogs-txt">
                                 {{ locale == 'default' ? post.content|slice(0, 150)|raw : ((post.translations|filter(t=>t.keyword == 'post.content')|first).value)|raw }}
