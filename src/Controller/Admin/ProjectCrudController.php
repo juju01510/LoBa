@@ -8,6 +8,7 @@ use App\Form\TranslationEditType;
 use App\Form\TranslationProjectNewType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -60,7 +61,11 @@ class ProjectCrudController extends AbstractCrudController
         yield TextField::new('user')
             ->setLabel('Created by')
             ->hideOnForm();
-    }
+        yield BooleanField::new('available')
+            ->onlyOnForms();
+        yield BooleanField::new('available')
+            ->renderAsSwitch(false)
+            ->onlyOnIndex();    }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
