@@ -10,9 +10,9 @@
         <div class="mem-back">
             {% for member in members %}
                 <div class="mem-list">
-                    <img src="{{ asset('build/images/Picto_member.png') }}" alt="photo membre" style="float:left">
+                    <img src="{{ asset('uploads/images/' ~ member.image) }}" alt="photo membre" style="float:left">
                     <p class="status">{{ member.position }}</p>
-                    <p class="identity">{{ member.firstname }} {{ member.lastname }}</p>
+                    <p class="identity">{{ member.firstname }} <br> <span>{{ member.lastname }}</span></p>
                 </div>
             {% endfor %}
         </div>

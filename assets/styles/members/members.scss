@@ -28,18 +28,22 @@
 
   .mem-back{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     border: 2px solid var(--main-color-orange);
     width: 90%;
     align-items: center;
     justify-content: center;
-    justify-items: center; /* ajouter cette propriété */
+    justify-items: start; /* ajouter cette propriété */
     background-color: rgba(0, 0, 0, .3);
     backdrop-filter: blur(30px);
     border-radius: 10px;
     margin-bottom: 5rem;
     padding: 3rem;
+    @media (max-width: 1000px) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
 
     .mem-list{
       display: grid;
@@ -69,6 +73,10 @@
       .identity{
         grid-row: 2 / 3; /* occupe la deuxième ligne */
         text-align: center;
+
+        span {
+          text-transform: uppercase;
+        }
       }
     }
   }

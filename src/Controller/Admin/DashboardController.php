@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Commentary;
 use App\Entity\Introduction;
 use App\Entity\Logo;
+use App\Entity\Member;
 use App\Entity\Newsletter\Users;
 use App\Entity\Partners;
 use App\Entity\Post;
@@ -75,6 +76,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('', '');
 
         yield MenuItem::linkToCrud('Admins', 'fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Members', 'fa fa-users', Member::class);
+
+        yield MenuItem::section('', '');
+
         yield MenuItem::linkToCrud('Messages', 'fa fa-envelope', Commentary::class);
         yield MenuItem::linkToCrud('Subscribers', 'fa fa-users', Users::class);
 
