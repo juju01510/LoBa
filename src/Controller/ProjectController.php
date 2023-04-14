@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Project;
+use App\Repository\BgProjectRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\TranslationRepository;
 use App\Service\TranslationService;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProjectController extends AbstractController
 {
     #[Route('/projects/{_locale}', name: 'app_projects')]
-    public function index(ProjectRepository $projectRepository, Request $request, TranslationRepository $translationRepository, TranslationService $translationService, $_locale = ''): Response
+    public function index(ProjectRepository $projectRepository, BgProjectRepository $bgProjectRepository,Request $request, TranslationRepository $translationRepository, TranslationService $translationService, $_locale = ''): Response
     {
         if ($_locale === '') {
             $locale = 'default';
@@ -38,7 +39,8 @@ class ProjectController extends AbstractController
         return $this->render('projects/projects.html.twig', [
             'projects' => $projects,
             'ps' => $projectsTrans,
-            'locale' => $locale
+            'locale' => $locale,
+            'bgs' => $bgProjectRepository->findAll()
         ]);
     }
 }

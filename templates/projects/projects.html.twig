@@ -4,7 +4,7 @@
 
 {% block main %}
 
-    <div style="background-image: url('{{ asset('build/images/africa-1089242_1920.jpg') }}')" class="sectionProjOne">
+    <div style="background-image: url('{{ asset('uploads/images/' ~ bgs[0].background1) }}')" class="sectionProjOne">
         <section class="proj-intro">
             <h1>{{ 'projects_page.title'|trans }}</h1>
             <section class="sec-pictos">
@@ -44,7 +44,7 @@
     </div>
     <style>
         .sec-sante:nth-child(2n+3) {
-            background-image: url('{{ asset('build/images/african-5035645_1920.jpg') }}');
+            background-image: url('{{ asset('uploads/images/' ~ bgs[0].background2) }}');
         }
     </style>
 

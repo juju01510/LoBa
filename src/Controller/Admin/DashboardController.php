@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\BgProject;
 use App\Entity\Category;
 use App\Entity\Commentary;
 use App\Entity\Introduction;
@@ -96,6 +97,7 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::subMenu('Project page', 'fa fa-list-check')->setSubItems([
             MenuItem::linkToCrud('Projects', '',Project::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Backgrounds', '',BgProject::class)->setAction(Crud::PAGE_INDEX),
         ]);
 
         yield MenuItem::subMenu('News page', 'fa fa-newspaper-o')->setSubItems([
