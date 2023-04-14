@@ -34,10 +34,9 @@ class NewsletterUserController extends AbstractController
             $userRepository->save($user, true);
 
             $email = (new TemplatedEmail())
-                ->from('loba@loba.fr')
-                ->to('emilielesbros@gmail.com')
-                ->addTo('onglobainternational@gmail.com')
-                ->subject('Nouvel inscription à la newsletter Lô-bâ')
+                ->from($user->getEmail())
+                ->to('onglobainternational@gmail.com')
+                ->subject('Newsletter\'s subscribing')
                 ->htmlTemplate('email/inscription.html.twig')
                 ->context(compact('user', 'token'))
             ;
