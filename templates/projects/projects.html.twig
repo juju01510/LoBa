@@ -18,7 +18,7 @@
 
         {% if locale == 'default' %}
             {% for project in projects %}
-                <section class="sec-sante">
+                <section id="{{ project.id }}" class="sec-sante">
                     <a id="sante-title"><h2>{{ project.title }}</h2></a>
                     <div class="content">
                         {{ project.content|raw }}
@@ -31,7 +31,7 @@
             {% for p in ps %}
                 {% set title = p.translations | filter(t=>t.keyword == 'project.title')|first %}
                 {% set content = p.translations | filter(t=>t.keyword == 'project.content')|first %}
-                <section class="sec-sante">
+                <section id="{{ p.id }}" class="sec-sante">
                     <a id="sante-title"><h2>{{ title.value|raw }}</h2></a>
                     <div class="content">
                         {{ content.value|raw }}
