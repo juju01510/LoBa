@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\BgProject;
-use App\Entity\Category;
 use App\Entity\Commentary;
 use App\Entity\Introduction;
 use App\Entity\Logo;
@@ -13,7 +12,6 @@ use App\Entity\Partners;
 use App\Entity\Post;
 use App\Entity\Project;
 use App\Entity\Section;
-use App\Entity\Translation;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;

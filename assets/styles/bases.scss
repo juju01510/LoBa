@@ -11,3 +11,11 @@ html {
 strong {
   font-family: var(--bold-font);
 }
+
+em {
+  font-family: var(--italic-font);
+}
+
+strong em {
+  font-family: var(--italic-bold-font);
+}
