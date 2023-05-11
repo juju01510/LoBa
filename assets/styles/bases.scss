@@ -2,6 +2,7 @@
 html {
   --res: calc(0.01 * 15vmin);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .box-shadow {
