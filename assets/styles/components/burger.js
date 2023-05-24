@@ -10,3 +10,11 @@ menuBurger.addEventListener("click",() => {navLinks.classList.toggle('mobile-men
         document.body.style.overflow = 'auto';
     }
 });
+
+// Désactivation du scroll lorsque le menu burger est visible
+navLinks.addEventListener('wheel', preventScroll, { passive: false });
+function preventScroll(e) {
+    e.preventDefault(); // Empêche le comportement par défaut du défilement
+    e.stopPropagation(); // Arrête la propagation de l'événement
+    return false;
+}
